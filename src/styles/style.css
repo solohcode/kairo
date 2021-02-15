@@ -1,0 +1,68 @@
+/* components stylings */
+/* heading desktop stylings  */
+.headerNav{
+    color: #a9a9a9;
+}
+.headerNav input{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    max-width: 200px;
+    background: none;
+    /* border-color: red; */
+}
+.headerNav ul li{
+    display: inline;
+    padding: 0 20px;
+}
+.headerMobile, .footerMobile{
+    display: none;
+}
+.logo img{
+    width: 180px;
+    height: 40px;
+}
+.logoMobile img{
+    width: 100px;
+    height: 25px;
+}
+.headerNav .link{
+    color: white;
+}
+
+.landing{
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../images/bg4.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #a9a9a9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .headerNav */
+@media screen and (max-width:800px){
+    .headerNav, .footer{
+        display: none;
+    }
+    .headerMobile, .footerMobile{
+        display: block;
+    }
+    
+    }
