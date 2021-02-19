@@ -11,46 +11,29 @@
     border-top: none;
     width: 80%;
     background: none;
-    color: white;
+    /* color: white; */
     margin: 0 8px;
     /* border-color: red; */
 }
-.headerNav input:focus{
-    /* border: none; */
-    /* padding: 2px; */
-    color: white;
-    /* width: 100%; */
-}
+
 .search-user{
     font-size: 20px;
 }
-.search-user:hover{
-    color: white;
-}
-.headerNav ul li{
-    display: inline;
-    /* padding: 0 20px; */
-}
-/* .logo .logo-circle{
-    width: 80%;
-    height: 100%;
-    border: 2px solid white;
-    border-radius: 50%;
-} */
-.logo .logo-circle img{
-    width: 180px;
-    height: 40px;
-}
+
+
+
 .logoMobile img{
     width: 100px;
     height: 25px;
 }
-.headerNav .link{
+.headerNav .navbar .link{
     color: #a9a9a9;
+    font-weight: bold;
 }
-.headerNav .link:hover{
-    color: white;
+.headerNav .navbar .link:hover{
+    color: rgb(212, 64, 64);
     text-decoration: none;
+    /* transition: 1s ease-in-out; */
 }
 .landing{
     width: 100%;
@@ -65,12 +48,7 @@
     max-width: 700px;
     margin: 0px auto;
 }
-.kairo-text h1{
-   
-}
-.search{
 
-}
 .search input, .search select{
     width: 90%;
     margin: 0 auto;
@@ -90,21 +68,21 @@
     font-size: 20px;
 }
 .landing .cards{
-    margin-bottom: 95px;
+    /* margin-bottom: 200px; */
 }
 .landing .cards .sub-card{
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-    border: 1px solid rgb(250, 51, 51);
+   
+    margin-bottom: 100px;
+    /* border: 1px solid rgb(250, 51, 51); */
     border-radius: 5px;
     background-color: rgba(143, 143, 143, 0.116);
 }
-.card .sub-card:hover{
+.landing .cards .sub-card:hover{
     background-color: rgba(143, 143, 143, 0.3);
-    color: white;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
-.card .sub-card div span{
+.landing .cards .sub-card .icon{
     font-size: 40px;
 }
 
@@ -133,17 +111,17 @@
 
 
 
-
+/* 
 .headerMobile, .footerMobile{
     display: none;
-}
+} */
 /* .headerNav */
 @media screen and (max-width:800px){
-    .headerNav, .footer{
+    /* .headerNav, .footer{
         display: none;
     }
     .headerMobile, .footerMobile{
         display: block;
-    }
+    } */
     
     }

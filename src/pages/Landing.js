@@ -13,7 +13,7 @@ function Landing() {
     return (
         <div className="">
             <HeaderNav/>
-            <HeaderMobile/>
+            {/* <HeaderMobile/> */}
             <Demo/>
             <Products/>
         </div>

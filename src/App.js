@@ -9,7 +9,7 @@ import './styles/style.css'
 // import HeaderNav from './components/header/HeaderNav'
 // import HeaderMobile from './components/header/HeaderMobile'
 import Footer from './components/Footer/Footer'
-import FooterMobile from './components/Footer/FooterMobile'
+// import FooterMobile from './components/Footer/FooterMobile'
 
 // pages imports
 import Landing from './pages/Landing'
@@ -53,7 +53,7 @@ return (
             </Router>
 
             <Footer/>
-            <FooterMobile/>
+            {/* <FooterMobile/> */}
         </div>
     )
 }
