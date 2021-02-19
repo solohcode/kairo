@@ -1,24 +1,43 @@
 /* components stylings */
 /* heading desktop stylings  */
 .headerNav{
+    width: 100%;
     color: #a9a9a9;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9));
 }
 .headerNav input{
     border-left: none;
     border-right: none;
     border-top: none;
-    max-width: 200px;
+    width: 80%;
     background: none;
+    color: white;
+    margin: 0 8px;
     /* border-color: red; */
+}
+.headerNav input:focus{
+    /* border: none; */
+    /* padding: 2px; */
+    color: white;
+    /* width: 100%; */
+}
+.search-user{
+    font-size: 20px;
+}
+.search-user:hover{
+    color: white;
 }
 .headerNav ul li{
     display: inline;
-    padding: 0 20px;
+    /* padding: 0 20px; */
 }
-.headerMobile, .footerMobile{
-    display: none;
-}
-.logo img{
+/* .logo .logo-circle{
+    width: 80%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 50%;
+} */
+.logo .logo-circle img{
     width: 180px;
     height: 40px;
 }
@@ -27,17 +46,76 @@
     height: 25px;
 }
 .headerNav .link{
-    color: white;
+    color: #a9a9a9;
 }
-
+.headerNav .link:hover{
+    color: white;
+    text-decoration: none;
+}
 .landing{
     width: 100%;
-    height: 600px;
-    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../images/bg4.jpg);
-    background-size: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url(../images/bg4.jpg);
+    background-size: 100% 100%;
+    background-position: center;
     background-repeat: no-repeat;
     color: #a9a9a9;
 }
+.kairo-text{
+    max-width: 700px;
+    margin: 0px auto;
+}
+.kairo-text h1{
+   
+}
+.search{
+
+}
+.search input, .search select{
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+.search select option{
+    background-color: rgba(0, 0, 0, 0.979);
+}
+.search button{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+.landing .cards{
+    margin-bottom: 95px;
+}
+.landing .cards .sub-card{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    border: 1px solid rgb(250, 51, 51);
+    border-radius: 5px;
+    background-color: rgba(143, 143, 143, 0.116);
+}
+.card .sub-card:hover{
+    background-color: rgba(143, 143, 143, 0.3);
+    color: white;
+}
+.card .sub-card div span{
+    font-size: 40px;
+}
+
+.random-products .products-cards .sub-card{
+    width: 100%;
+    height: 90%;
+}
+.products-cards .sub-card img{
+    width: 100%;
+    height: 100%;
+}
 
 
 
@@ -56,6 +134,9 @@
 
 
 
+.headerMobile, .footerMobile{
+    display: none;
+}
 /* .headerNav */
 @media screen and (max-width:800px){
     .headerNav, .footer{

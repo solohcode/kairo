@@ -5,11 +5,11 @@ import createBrowserHistory from 'history/createBrowserHistory'
 // style 
 import './styles/style.css'
 
-// components imports
-import HeaderNav from './components/header/HeaderNav'
-import HeaderMobile from './components/header/HeaderMobile'
-import Footer from './components/header/Footer'
-import FooterMobile from './components/header/FooterMobile'
+// // components imports
+// import HeaderNav from './components/header/HeaderNav'
+// import HeaderMobile from './components/header/HeaderMobile'
+import Footer from './components/Footer/Footer'
+import FooterMobile from './components/Footer/FooterMobile'
 
 // pages imports
 import Landing from './pages/Landing'
@@ -20,6 +20,7 @@ import Dashboard from './pages/Users/Dashboard'
 import Profile from './pages/Users/Profile'
 import EditProfile from './pages/Users/EditProfile'
 import Products from './pages/Users/Products'
+import CreateBusiness from './pages/Users/CreateBusiness'
 import Forgot from './pages/Auth/Forgot'
 import Verify from './pages/Auth/Verify'
 import Contact from './pages/Contact'
@@ -47,6 +48,7 @@ return (
                     <Route path="/forgotPassword" component={Forgot}/>
                     <Route path="/verifyEmail" component={Verify}/>
                     <Route path="/contact" component={Contact}/>
+                    <Route path="/createBusiness" component={CreateBusiness}/>
                 </Switch>
             </Router>
 

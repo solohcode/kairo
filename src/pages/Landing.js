@@ -1,17 +1,21 @@
 import React from 'react'
 
 // components imports 
-import HeaderNav from '../components/header/HeaderNav'
-import HeaderMobile from '../components/header/HeaderMobile'
+import HeaderNav from '../components/Header/HeaderNav'
+import HeaderMobile from '../components/Header/HeaderMobile'
+
+import Demo from '../components/Pages/Landing/Demo'
+import Products from '../components/Pages/Products/RandomProducts'
 
 
 function Landing() {
+   
     return (
-        <div className="container-fluid landing">
+        <div className="">
             <HeaderNav/>
             <HeaderMobile/>
-            <br/>
-            <h1>hello from landing page</h1>
+            <Demo/>
+            <Products/>
         </div>
     )
 }
