@@ -27,13 +27,13 @@
     height: 25px;
 }
 .headerNav .navbar .link{
-    color: #a9a9a9;
-    font-weight: bold;
+    color: #b6b6b6;
+    /* font-weight: bold; */
+    font-size: 18px;
 }
 .headerNav .navbar .link:hover{
-    color: rgb(212, 64, 64);
+    color: rgb(126, 122, 122);
     text-decoration: none;
-    /* transition: 1s ease-in-out; */
 }
 .landing{
     width: 100%;
@@ -68,31 +68,29 @@
     font-size: 20px;
 }
 .landing .cards{
-    /* margin-bottom: 200px; */
+    /* margin-bottom: 10px; */
 }
 .landing .cards .sub-card{
-   
-    margin-bottom: 100px;
-    /* border: 1px solid rgb(250, 51, 51); */
     border-radius: 5px;
     background-color: rgba(143, 143, 143, 0.116);
 }
 .landing .cards .sub-card:hover{
     background-color: rgba(143, 143, 143, 0.3);
-    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 .landing .cards .sub-card .icon{
     font-size: 40px;
+} 
+
+.products .prod-link:hover{
+    text-decoration: none;
 }
 
-.random-products .products-cards .sub-card{
+/* footer styling  */
+.footer{
     width: 100%;
-    height: 90%;
-}
-.products-cards .sub-card img{
-    width: 100%;
-    height: 100%;
+    /* max-height: ; */
+    background: linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url(../images/bg3.jpg);
 }
 
 
@@ -111,11 +109,6 @@
 
 
 
-/* 
-.headerMobile, .footerMobile{
-    display: none;
-} */
-/* .headerNav */
 @media screen and (max-width:800px){
     /* .headerNav, .footer{
         display: none;

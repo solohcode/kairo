@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link,Router,Route,Switch } from 'react-router-dom'
 
 function Dashboard() {
     return (
         <div>
-            Dashboard
+            <div className="dashboard">
+
+            </div>
         </div>
     )
 }

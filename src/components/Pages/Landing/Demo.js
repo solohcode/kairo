@@ -8,7 +8,7 @@ function Demo() {
             <div className="container-fluid my-5">
                 <div className="text-center">
                     <div className="kairo-text">
-                        <h3 className="text-danger"><span className="fa fa-map-marker"/>Kairo Local Online Market Platform.</h3>
+                        <h3 className="text-danger"><span className="fas fa-map-marker"/>Kairo Local Online Market Platform.</h3>
                         <h5 className="px-5">an online market platform for a local market at oshodi isolo local government lagos state.</h5>
                     </div>
 
@@ -73,6 +73,8 @@ function Demo() {
                             <div className="col-md-3"></div>
                         </div>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
             </div>
         </div>

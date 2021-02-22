@@ -6,10 +6,9 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import './styles/style.css'
 
 // // components imports
-// import HeaderNav from './components/header/HeaderNav'
+import HeaderNav from './components/Header/HeaderNav'
 // import HeaderMobile from './components/header/HeaderMobile'
 import Footer from './components/Footer/Footer'
-// import FooterMobile from './components/Footer/FooterMobile'
 
 // pages imports
 import Landing from './pages/Landing'
@@ -32,10 +31,11 @@ import Contact from './pages/Contact'
      const history = createBrowserHistory()
 return (
         <div className="">
-            {/* <HeaderNav/>
-            <HeaderMobile/> */}
+             {/* <HeaderNav/> */}
 
             <Router history={history}>
+            <HeaderNav/>
+
                 <Switch>
                     <Route exact path="/" component={Landing}/>
                     <Route path="/about" component={About}/>
@@ -50,9 +50,10 @@ return (
                     <Route path="/contact" component={Contact}/>
                     <Route path="/createBusiness" component={CreateBusiness}/>
                 </Switch>
+            <Footer/>
             </Router>
 
-            <Footer/>
+            
             {/* <FooterMobile/> */}
         </div>
     )
