@@ -10,7 +10,7 @@ export class UserProfile extends Component {
             <div>
                 <div className="UserProfile">
                     <div className="container-fluid">
-                        <div className="UserProfile-top mt-2">
+                        <div className="UserProfile-top ">
                             <div className="text-center">
                                 <h3><span className="text-danger fa fa-user"/> User Profile</h3>
                                 <hr/>
@@ -38,22 +38,56 @@ export class UserProfile extends Component {
                             </div>
                             <hr/>
 
-                            <div className="row text-center">
-                                <div className="col-md-6 border-right border-left">
+                            <div className="row ">
+                                <div className="col-md-6 border-right border-left about-you">
                                     <h4>About you</h4>
                                     <hr/>
-                                    <p>Westhech mill is a fullstack developer, a graphics and a UI/UX designer and a music producer.</p>
-
+                                    <p className="pr-5">Westhech mill is a fullstack developer, a graphics and a UI/UX designer and a music producer.</p>
+                                    <div className="text-start">
+                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {mail}</a>
+                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-phone"/> : {phone}</a>
+                                    </div>
                                 </div>
-                                <div className="col-md-6 border-left border-right">
+                                <div className="col-md-6 border-left border-right about-business">
                                     <h4>About your Business</h4>
                                     <hr/>
                                     <h6>Business Name: <span>WESTECH INVESTMENT</span></h6>
                                     <hr/>
                                     <p>Westhech investment org is an organization that is specialized in web development and graphics and a UI/UX designer and also music production.</p>
-                                    
+                                   
                                 </div>
                             </div>
+
+                            <hr/>
+                                
+
+                                <div className="row">
+                                        <div className="col-md-6">
+                                            <div className="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Services</h5>
+                                                   
+                                                    <li class="card-text">Web development</li>
+                                                    <li class="card-text">UI/IX designs</li>
+                                                    <li class="card-text">Web development</li>
+
+
+                                                    
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <div className="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Products</h5>
+                                                    
+                                                    <li class="card-text">web app</li>
+                                                    <li class="card-text">mobile app</li>
+                                                    <li class="card-text">musical instruments</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div>
