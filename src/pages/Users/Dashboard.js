@@ -1,31 +1,35 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { Link,Router,Route,Switch } from 'react-router-dom'
 
 import Sidebar from '../../components/Sidebar/Sidebar'
+import BreadCrumb from '../../components/Breadcrumb/BreadCrumb'
+import Cards from '../../components/Pages/Dashboard/Cards'
 
-function Dashboard() {
+
+class Dashboard extends Component{
+    
+    render(){
     return (
         <div>
-            <div className="dashboard">
-            {/* <Sidebar/> */}
+               <BreadCrumb/>
+            <div className="dashboard mt-big">
+               
+             
+            <div className="container-fluid ">
+              
                 <div className="row">
                     <div className="col-md-3">
-                       <Sidebar/>
+                        <Sidebar/>
                     </div>
-                    <div className="col-md-8">
-                    <h1> lorem ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                       Lorem Ipsum has been the industry's standard dummy text ever since the
-                       1500s, when an unknown printer took a galley of type and scrambled it to
-                       make a type specimen book. It has survived not only five centuries, but
-                       also the leap into electronic typesetting, remaining essentially
-                       unchanged. It was popularised in the 1960s with the release of Letraset
-                       sheets containing Lorem Ipsum passages, and more recently with desktop
-                       publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h1>
+                    <div className="col-md-9 mt-5">
+                        <Cards/>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
     )
+    }
 }
 
 export default Dashboard
