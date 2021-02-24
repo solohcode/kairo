@@ -56,7 +56,7 @@ function Footer() {
                                 </div>
                                 <div>
                                     <h6 className="text-danger mt-3">Contact the developer</h6>
-                                    <a href="https://techendinc.com.ng" className="text-white" rel="noopener noreferrer" target="_blank">techendinc.com.ng</a>
+                                    <a href="https://techend.com.ng" className="text-white" rel="noopener noreferrer" target="_blank">techend.com.ng</a>
                                 </div>
                             </div>
                         </div>

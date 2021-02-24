@@ -12,8 +12,6 @@ function Landing() {
    
     return (
         <div className="">
-            {/* <HeaderNav/> */}
-            {/* <HeaderMobile/> */}
             <Demo/>
             <Products/>
         </div>

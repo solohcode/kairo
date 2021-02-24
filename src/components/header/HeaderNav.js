@@ -1,19 +1,17 @@
 import React from 'react'
-import { NavLink,Link, Router } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import {Link} from 'react-router-dom'
 import logo from '../../images/logo3.jpg'
 
 
 
 const Header=()=> {
-    const history = createBrowserHistory()
     return (
-        <div className="headerNav">
+        <div className="headerNav mb-5 " style={{marginBottom:'30px'}}>
             <div className="container-fluid">
                
 
 
-                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
                 <Link class="navbar-brand" to="/">
                     <img src={logo} alt="logo" width="180px" height="30px"/>
                 </Link>
@@ -24,7 +22,7 @@ const Header=()=> {
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item mx-3">
-                        <Link class="nav-link link active" to="/">Home</Link>
+                        <Link class="nav-link link " to="/">Home</Link>
                     </li>
                     <li class="nav-item mx-3">
                         <Link class="nav-link link" to="/about">About</Link>
