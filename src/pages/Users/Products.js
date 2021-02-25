@@ -3,6 +3,7 @@ import React from 'react'
 // component imports  
 import Sidebar from '../../components/Sidebar/Sidebar'
 import BreadCrumb from '../../components/Breadcrumb/BreadCrumb'
+import UserProducts from '../../components/Pages/Products/UserProducts'
 
 function Products() {
     return (
@@ -15,7 +16,7 @@ function Products() {
                             <Sidebar/>
                         </div>
                         <div className="col-md-9">
-
+                            <UserProducts/>
                         </div>
                     </div>
                 </div>

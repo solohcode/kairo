@@ -7,7 +7,6 @@ import './styles/style.css'
 
 // // components imports
 import HeaderNav from './components/Header/HeaderNav'
-// import HeaderMobile from './components/header/HeaderMobile'
 import Footer from './components/Footer/Footer'
 
 // pages imports
