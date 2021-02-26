@@ -45,7 +45,7 @@ class Products extends Component{
                            
                               
                               <div className="col-md-3">
-                                <div class="card border-none shadow mb-5 rounded">
+                                <div class="card products-card border-none shadow mb-5 rounded">
                                     <img class="card-img-top" src={this.state.product_image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
                                     <div class="card-body">
                                     <h5 class="card-title">{this.state.product_name}</h5>
@@ -63,7 +63,7 @@ class Products extends Component{
                                             <p >{this.state.price}</p>
                                         </div>
                                     </div>
-                                    <div class=" card-footer" id="Product-footer">
+                                    <div className=" card-footer" id="product-footer">
                                         <div className="float-left">
                                             <b>{this.state.category}</b> <span>|</span>
                                         </div>

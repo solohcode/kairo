@@ -3,6 +3,7 @@ import React from 'react'
 // component imports  
 import Sidebar from '../../components/Sidebar/Sidebar'
 import BreadCrumb from '../../components/Breadcrumb/BreadCrumb'
+import Edit from '../../components/Pages/Profile/Edit'
 
 function EditProfile() {
     return (
@@ -15,7 +16,7 @@ function EditProfile() {
                         <Sidebar/>
                     </div>
                     <div className="col-md-9">
-
+                        <Edit/>
                     </div>
                 </div>
             </div>

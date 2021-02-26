@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import user from '../../../images/user.png'
 
@@ -34,6 +35,9 @@ export class UserProfile extends Component {
                                 <a href="" className="m-2 btn btn-outline-danger rounded-circle"><span style={{width:"15px"}} className=" fa fa-facebook"/></a>
                                 <a href="" className="m-2 btn btn-outline-danger rounded-circle"><span className=" fa fa-whatsapp"/></a>
                                 <a href="" className="btn btn-outline-danger rounded-circle"><span className=" fa fa-twitter"/></a>
+
+                                    <br/>
+                                <Link to='/editProfile' className="mt-4 btn btn-outline-secondary btn-lg fa fa-edit"> Edit Profile</Link>
                             </div>
                             </div>
                             <hr/>

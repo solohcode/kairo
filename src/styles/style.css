@@ -81,7 +81,10 @@
 }
 .landing .cards .sub-card .icon{
     font-size: 40px;
-} 
+}
+.products-card:hover + #products-footer {
+    display: none;
+}
 
 .products .prod-link:hover{
     text-decoration: none;
