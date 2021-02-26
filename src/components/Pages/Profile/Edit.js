@@ -4,9 +4,9 @@ export class Edit extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="text-center">
 
-                    <h1>hello world</h1>
+                    <h3 className="text-secondary"><span className="fas fa-user-edit text-danger"/> Edit your profile</h3>
 
                 </div>
             </div>
