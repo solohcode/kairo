@@ -66,7 +66,7 @@ export class UserProfile extends Component {
                                 
 
                                 <div className="row">
-                                        <div className="col-md-6">
+                                        <div className="col-md-4">
                                             <div className="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Services</h5>
@@ -80,7 +80,7 @@ export class UserProfile extends Component {
                                                 </div>  
                                             </div>
                                         </div>
-                                        <div className="col-md-6">
+                                        <div className="col-md-4">
                                             <div className="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Products</h5>
@@ -88,6 +88,18 @@ export class UserProfile extends Component {
                                                     <li class="card-text">web app</li>
                                                     <li class="card-text">mobile app</li>
                                                     <li class="card-text">musical instruments</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4">
+                                            <div className="card">
+                                                <div class="card-body">
+                                                    {/* <h5 class="card-title">Other</h5> */}
+                                                    
+                                                    <b class="card-text fa fa-link">Website:<a href="#" class="btn btn-link "> www.website.com</a></b>
+                                                    <b class="card-text fa fa-map-marker">Address:<p class=" fa fa-link"> address of office or shop.</p></b>
+
+                                                    
                                                 </div>
                                             </div>
                                         </div>

@@ -154,11 +154,33 @@
       bottom: 0;
   }
   
-  .sidebar .link:hover:not(.active) {
+  .sidebar .link:hover {
     background-color: #d65757;
     color: white;
     transition: 0.5s;
   }
+  .sidebar .link:active{
+    background-color: #d65757;
+    color: white;
+  }
+  .sidebar .link:focus{
+    background-color: #d65757;
+    color: white;
+  }
+  /* .sidebar .link:link{
+    background-color: #d65757;
+    color: white;
+  } */
+  .sidebar .link:default{
+    background-color: #d65757;
+    color: white;
+  }
+  .sidebar .link:enabled{
+    background-color: #d65757;
+    color: white;
+  }
+  
+
   div.content {
     margin-left: 200px;
     padding: 1px 16px;

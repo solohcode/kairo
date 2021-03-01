@@ -49,27 +49,18 @@ class Products extends Component{
                                     <img class="card-img-top" src={this.state.product_image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
                                     <div class="card-body">
                                     <h5 class="card-title">{this.state.product_name}</h5>
-                                    <p class="card-text">{this.state.description}</p>
-                                    <hr/>
-                                        <div class="card-text float-left">
-                                            {
-                                            arr2.map((b)=>(
-                                                <span key="b" style={{color:'orange',fontSize:'12px',}} class="fa fa-star checked"></span>
-                                            ))
-                                            }
-                                            
-                                        </div>
-                                        <div class="card-text float-right">
-                                            <p >{this.state.price}</p>
+                                    <p class="card-text float-left">{this.state.description}</p>
+                                   
+                                       <div className="mx-auto" style={{width:'100%',height:'100%'}}>
+                                           <Link to="" className="btn btn-outline-danger prod-link fa fa-user">View</Link>
                                         </div>
                                     </div>
                                     <div className=" card-footer" id="product-footer">
-                                        <div className="float-left">
+                                    <div className="float-left">
                                             <b>{this.state.category}</b> <span>|</span>
                                         </div>
-                                        <div className="mx-3 float-right" style={{fontSize:'20px',}}>
-                                            <big className="d-inline mx-3"><Link to="" className="text-danger prod-link fa fa-user"/></big>
-                                            <big className="d-inline mx-3"><Link to="" className="text-danger prod-link fa fa-cart-plus"/></big>
+                                        <div class="card-text float-right">
+                                            <p >{this.state.price}</p>
                                         </div>
                                     </div>
                                 </div>

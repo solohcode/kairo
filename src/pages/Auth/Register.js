@@ -38,17 +38,6 @@ function Register() {
                                     </div>
 
                                     <div className="col-md-10 my-2 mx-auto">
-                                        <label className="form-label">Password</label>
-                                        <div className="input-group">
-                                        <span className="input-group-text fa fa-key"/>
-                                        <input type="password" className="form-control" placeholder="password" required/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-6">
-                                    
-                                        <div className="col-md-10 my-2 mx-auto">
                                             <label className="form-label">Email</label>
                                             <div className="input-group">
                                             <span className="input-group-text fa fa-envelope"/>
@@ -56,11 +45,25 @@ function Register() {
                                             </div>
                                         </div>
 
+                                    
+                                </div>
+
+                                <div className="col-md-6">
+                                    
+
                                         <div className="col-md-10 my-2 mx-auto">
                                             <label className="form-label">Mobile number</label>
                                             <div className="input-group">
                                             <span className="input-group-text fa fa-phone"/>
                                             <input type="number" className="form-control" placeholder="mobile number" required/>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-10 my-2 mx-auto">
+                                            <label className="form-label">Password</label>
+                                            <div className="input-group">
+                                            <span className="input-group-text fa fa-key"/>
+                                            <input type="password" className="form-control" placeholder="password" required/>
                                             </div>
                                         </div>
 
