@@ -27,7 +27,7 @@ class Products extends Component{
                         product.map( prod =>(
                            
                               
-                              <div className="col-md-3">
+                              <div key={prod.id} className="col-md-3">
                                 <div class="card products-card border-none shadow mb-5 rounded">
                                     <img class="card-img-top" src={prod.product_image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
                                     <div class="card-body">
