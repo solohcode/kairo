@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import { ProfileData } from '../../LocalStorage/Storage'
 
-import user from '../../images/user.png'
+
+
 
 export class Sidebar extends Component {
-   
-    render() {
-        
+   render() {
         return (
             <div>
                 <div className="sidebar text-center border-right border-left mb-1 d-sm-none d-md-block">
                     <br/>
                           <div className="user-profile-pic ">
-                            <img src={user} alt="user" width="80px" height="80px" className="border border-secondary rounded-circle"/>
+                            <img src={ProfileData.dp} alt="user" width="80px" height="80px" className="border border-secondary rounded-circle"/>
                           </div>
                           <hr className="text-white" style={{height:'5px',color:'white',}}/>
                                 <Link className=" link" to="/dashboard" ><span className="fa fa-dashboard"/> Dashboard</Link>

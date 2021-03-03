@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import user from '../../../images/user.png'
+import { ProfileData } from '../../../LocalStorage/Storage'
+// const ProfileData = JSON.parse
 
 export class UserProfile extends Component {
     render() {
-        const mail ='westechmill@gmail.com'
-        const phone ='+2348056343370'
+        
         return (
             <div>
                 <div className="UserProfile">
@@ -21,13 +20,13 @@ export class UserProfile extends Component {
                             <div className="row">
                             <ul className="col-md-6">
                             <li className="d-inline ml-3">
-                                <img src={user} alt="user" width="100px" height="100px" className="rounded-circle border"/>
+                                <img src={ProfileData.dp} alt="user" width="100px" height="100px" className="rounded-circle border"/>
                             </li>
                             <li className="d-inline float-right ">
                                 <div className="float-left mt-2 mr-5">
-                                <h4 className="d-block">Westech Mills</h4>
-                                <a href={`mailto:`& mail} className="text-dark d-block btn-link">{mail}</a>
-                                <a href={`mailto:`& phone} className="text-dark d-block btn-link">{phone}</a>
+                                <h4 className="d-block">{ProfileData.name}</h4>
+                                <a href={`mailto:`& ProfileData.mail} className="text-dark d-block btn-link">{ProfileData.mail}</a>
+                                <a href={`mailto:`& ProfileData.phone} className="text-dark d-block btn-link">{ProfileData.phone}</a>
                                 </div>
                             </li>
                             </ul>
@@ -46,18 +45,18 @@ export class UserProfile extends Component {
                                 <div className="col-md-6 border-right border-left about-you">
                                     <h4>About you</h4>
                                     <hr/>
-                                    <p className="pr-5">Westhech mill is a fullstack developer, a graphics and a UI/UX designer and a music producer.</p>
+                                    <p className="pr-5">{ProfileData.user}.</p>
                                     <div className="text-start">
-                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {mail}</a>
-                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-phone"/> : {phone}</a>
+                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {ProfileData.mail}</a>
+                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-phone"/> : {ProfileData.phone}</a>
                                     </div>
                                 </div>
                                 <div className="col-md-6 border-left border-right about-business">
                                     <h4>About your Business</h4>
                                     <hr/>
-                                    <h6>Business Name: <span>WESTECH INVESTMENT</span></h6>
+                                    <h6>Business Name: <span>{ProfileData.b_name}</span></h6>
                                     <hr/>
-                                    <p>Westhech investment org is an organization that is specialized in web development and graphics and a UI/UX designer and also music production.</p>
+                                    <p>{ProfileData.business}.</p>
                                    
                                 </div>
                             </div>
@@ -71,12 +70,8 @@ export class UserProfile extends Component {
                                                 <div class="card-body">
                                                     <h5 class="card-title">Services</h5>
                                                    
-                                                    <li class="card-text">Web development</li>
-                                                    <li class="card-text">UI/IX designs</li>
-                                                    <li class="card-text">Web development</li>
-
-
-                                                    
+                                                    <p class="card-text">{ProfileData.service}</p>
+                       
                                                 </div>  
                                             </div>
                                         </div>
@@ -85,9 +80,7 @@ export class UserProfile extends Component {
                                                 <div class="card-body">
                                                     <h5 class="card-title">Products</h5>
                                                     
-                                                    <li class="card-text">web app</li>
-                                                    <li class="card-text">mobile app</li>
-                                                    <li class="card-text">musical instruments</li>
+                                                    <p class="card-text">{ProfileData.product}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,8 +89,8 @@ export class UserProfile extends Component {
                                                 <div class="card-body">
                                                     {/* <h5 class="card-title">Other</h5> */}
                                                     
-                                                    <b class="card-text fa fa-link">Website:<a href="#" class="btn btn-link "> www.website.com</a></b>
-                                                    <b class="card-text fa fa-map-marker">Address:<p class=" fa fa-link"> address of office or shop.</p></b>
+                                                    <b class="card-text fa fa-link">Website:<a href="#" class="btn btn-link "> {ProfileData.web}</a></b>
+                                                    <b class="card-text fa fa-map-marker">Address:<p class=""> {ProfileData.address}.</p></b>
 
                                                     
                                                 </div>

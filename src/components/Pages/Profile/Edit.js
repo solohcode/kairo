@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import user from '../../../images/user.png'
+import { ProfileData } from '../../../LocalStorage/Storage'
 
 export class Edit extends Component {
     render() {
@@ -12,9 +13,21 @@ export class Edit extends Component {
                     <h3 className="text-secondary"><span className="fas fa-user-edit text-danger"/> Edit your profile</h3>
                     <hr/>
 
-                    <div className="">
-                        <img src={user} alt="user" width="60px" height="60px" className="border border-secondary rounded-circle"/>
-                        <input type="file" className="form-file mx-auto" />
+                    <div className="row ">
+                        <div className="col-6 text-center">
+                            <img src={ProfileData.dp} alt="user" width="60px" height="60px" className="float-left border border-secondary rounded-circle"/>
+                        </div>
+                        <div className="col-6 mt-2">
+                            <div class="input-group mb-3 mx-auto">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Upload image</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01"/>
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                     </div>
 
@@ -63,7 +76,7 @@ export class Edit extends Component {
                                  <div className="mx-auto">
                                         <label className="form-label">Social Handle</label>
                                         <div className="input-group">
-                                        <span className="input-group-text fa fa-link"/>
+                                        <span className="input-group-text fa fa-whatsapp"/>
                                         <input type="text" className="form-control" placeholder="social handles or links"/>
                                         </div>
                                     </div>
@@ -89,7 +102,7 @@ export class Edit extends Component {
                                     <div className="mx-auto">
                                         <label className="form-label">Business Name</label>
                                         <div className="input-group">
-                                        <span className="input-group-text fa fa-label"/>
+                                        <span className="input-group-text fa fa-certificate"/>
                                         <input type="text" className="form-control" placeholder="business name"/>
                                         </div>
                                     </div>

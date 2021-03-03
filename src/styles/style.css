@@ -1,3 +1,25 @@
+/* general styling  */
+.container .text-danger{
+    color: rgb(228, 113, 5);
+}
+.btn.btn-outline-danger{
+    border-color: rgb(228, 87, 5);
+    color: rgb(228, 87, 5);
+}
+.btn.btn-outline-danger:hover{
+    background-color: rgb(228, 87, 5);
+    color: white;
+}
+.btn-danger{
+    background-color: rgb(228, 87, 5);
+    color: white;
+    border-color: rgb(228, 87, 5);
+}
+.btn-danger:hover{
+    background-color: rgb(196, 99, 9);
+    border-color: rgb(196, 99, 9);
+}
+
 /* components stylings
 .container-fluid{
     width: 100%;

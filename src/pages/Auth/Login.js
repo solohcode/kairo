@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-function Login() {
+import{ LoginApi } from './APIs/AuthLogic'
+import { Log_in } from './APIs/AuthLogic'
+
+
+export const msg = document.getElementById('msg')
+const Login = ()=>{
+      
+    const [ load, setLoad ] = useState(false) 
+
+        const [data, setData] = useState({
+            email:"",
+            password:""
+          })
+    
+          const handleChange=(e)=>{
+            const {name, value} = e.target
+           setData(data=>({...data, [name]:value}))
+          }
+        
+          const handleSubmit =(e)=>{
+            e.preventDefault()
+            LoginApi(data)
+    
+          }
+         
+         
+
+
+
     return (
+
+
         <div>
          <div className="login-page">
                 <br/>
@@ -9,6 +39,10 @@ function Login() {
                     <br/>
                     <div className="text-black-50 text-center mt-4">
                         <h3 >You don't have an account? <Link to="/register" className="btn btn-lg btn-link text-danger">Register</Link></h3>
+                    </div>
+
+                    <div className=" alert-warning" id="msg" role="alert">
+                    
                     </div>
 
                     <div className="card mb-5 mx-5 bg-white rounded-5" style={{borderRadius:'15px'}}>
@@ -25,7 +59,7 @@ function Login() {
                                         <label className="form-label">Email</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-envelope"/>
-                                        <input type="email" className="form-control" placeholder="email" required/>
+                                        <input type="email" name="email" onChange={handleChange} className="form-control" placeholder="email" required/>
                                         </div>
                                     </div>
 
@@ -33,7 +67,7 @@ function Login() {
                                         <label className="form-label">Password</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-key"/>
-                                        <input type="password" className="form-control" placeholder="password" required/>
+                                        <input type="password" name="password" onChange={handleChange} className="form-control" placeholder="password" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +76,7 @@ function Login() {
                                 </div>
 
                                 <div class="mx-auto col-md-6 mt-5">
-                                        <button class="btn btn-lg btn-outline-danger px-5 rounded-pill" type="button" style={{width:'100%'}}> Login</button>
+                                        <button onClick={handleSubmit} class="btn btn-lg btn-outline-danger px-5 rounded-pill" type="button" style={{width:'100%'}}> Login</button>
                                 </div>  
                         </div>
                             
@@ -55,7 +89,10 @@ function Login() {
                 <br/>
             </div>
         </div>
+
+
     )
+    
 }
 
 export default Login

@@ -1,9 +1,12 @@
 import React,{ Component } from 'react'
 import { Link } from 'react-router-dom'
 import pro from '../../../images/t14.jpg'
+import { RandomProduct } from '../../../APIs/ProductsApis/Random'
 
 
 
+
+const displayProducts = JSON.parse(localStorage.getItem('displayProducts'))
 class Products extends Component{
     constructor(props){
         super(props)
@@ -13,26 +16,24 @@ class Products extends Component{
             product_name: 'infinix',
             description:'a product of infinix model name smart 4, android version 10.',
             price:'$30,000',
-            rating: 5,
             category:'Phones'
         }
       }
     render(){
-    var rating = this.state.rating
-    var arr2 = []
-    arr2.push(rating)
-    for(var j=1; j == rating ; j++){
-       return rating
-    }
+    const lent = displayProducts[].length()
+
+    console.log(lent)
     var arr = [];
     for(var i=1; i<=8; i++ ){
         arr.push(i)
     };
 
+
     return (
+
         <div>
             <div className="container random-products">
-
+                <RandomProduct/>
                 <div className="products my-5">
                     <div className="text-center">
                         <h3>Top Listings <span className="text-danger fas fa-shopping-cart"/></h3>
@@ -52,7 +53,7 @@ class Products extends Component{
                                     <p class="card-text float-left">{this.state.description}</p>
                                    
                                        <div className="mx-auto" style={{width:'100%',height:'100%'}}>
-                                           <Link to="" className="btn btn-outline-danger prod-link fa fa-user">View</Link>
+                                           <Link to="" className="btn btn-outline-danger prod-link ">View</Link>
                                         </div>
                                     </div>
                                     <div className=" card-footer" id="product-footer">

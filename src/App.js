@@ -24,10 +24,10 @@ import Verify from './pages/Auth/Verify'
 import Contact from './pages/Contact'
 
 
+export const history = createBrowserHistory()
 
 
  const App = ()=>{
-     const history = createBrowserHistory()
 return (
         <div className="">
              {/* <HeaderNav/> */}

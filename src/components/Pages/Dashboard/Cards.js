@@ -19,7 +19,7 @@ export class Cards extends Component {
                 <div className="text-center">
                         <Link to="/products" className=" card text-danger p-5 shadow">
                                     <h2><span className="text-white fa fa-shopping-cart"/></h2>
-                                    <h3 className="">Total Uploaded Products</h3>
+                                    <h3 className="">Uploaded Products</h3>
                                     <h4>{this.state.NOP}</h4>
                                     {/* <span className=" btn btn-sm btn-danger float-right mb-0 fa fa-plus"> Add products</span> */}
                                 </Link>
@@ -29,7 +29,7 @@ export class Cards extends Component {
                            
                                 <div className="card p-5 text-danger shadow">
                                 <h2><span className="text-white fa fa-tags"/></h2>
-                                    <h3>Total Products Categories</h3>
+                                    <h3>Products Categories</h3>
                                     <h4>{this.state.NOC}</h4>
                                 </div>
                             </div>
