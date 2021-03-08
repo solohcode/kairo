@@ -4,18 +4,24 @@ import { RandomProduct } from '../../../APIs/ProductsApis/Random'
 
 
 
-
-const displayProducts = JSON.parse(localStorage.getItem('displayProducts'))
 class Products extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            get:[]
+        }
+    }
+    async componentDidMount(){
+        const get = await RandomProduct()
+        this.setState({get:get})
+    }
     render(){
-    
-        const product = displayProducts
-
-    return (
+        const {get} = this.state
+        return (
 
         <div>
             <div className="container random-products">
-                <RandomProduct/>
+                {/* {get} */}
                 <div className="products my-5">
                     <div className="text-center">
                         <h3>Top Listings <span className="text-danger fas fa-shopping-cart"/></h3>
@@ -24,30 +30,82 @@ class Products extends Component{
                     <div className="">
                     <div className="row">
                     { 
-                        product.map( prod =>(
+                        get.map( prod =>(
                            
-                              
+                            //   <div>
                               <div key={prod.id} className="col-md-3">
                                 <div class="card products-card border-none shadow mb-5 rounded">
-                                    <img class="card-img-top" src={prod.product_image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
+                                    <img class="card-img-top" src={prod && prod.image} alt="product pic" style={{width:'100px',height:'90px',margin:'0 auto'}}/>
                                     <div class="card-body">
-                                    <h5 class="card-title">{prod.product_name}</h5>
-                                    <p class="card-text float-left">{prod.description}</p>
-                                   
-                                       <div className="mx-auto" style={{width:'100%',height:'100%'}}>
-                                           <Link to="" className="btn btn-outline-danger prod-link ">View</Link>
+                                    <h5 class="card-title">{prod && prod.product_name}</h5>
+                                    <p class="card-text float-left">{prod && prod.description}</p>
+                                   <br/>
+                                       <div className="col-12 mt-3 mx-auto">
+                                           <span className="btn btn-outline-danger prod-link" type="button" data-toggle="modal" data-target={`#modal${prod.id}`}>More</span>
                                         </div>
                                     </div>
                                     <div className=" card-footer" id="product-footer">
                                     <div className="float-left">
-                                            <b>{prod.category}</b> <span>|</span>
+                                            <b>{prod && prod.category}</b> <span>|</span>
                                         </div>
                                         <div class="card-text float-right">
-                                            <p >{prod.price}</p>
+                                            <p >{prod && prod.price}</p>
                                         </div>
                                     </div>
+
+
+                                    <div  class="modal fade" id={`modal${prod.id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Product details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                <img class="text-center" src={prod && prod.image} alt="product pic" style={{width:'100px',height:'100px',margin:'0 auto'}}/>
+                               <br/>
+                                <h5 class="">{prod && prod.product_name}</h5>
+                                <p class="card-text">{prod && prod.description}</p>
+                               
+                                    <div>
+                                        <div className="float-left">
+                                          <h6>Category: </h6>  <b>{prod && prod.category}</b>
+                                        </div>
+                                        <div class="card-text float-right">
+                                          <h6>Price: </h6>  <p >{prod && prod.price}</p>
+                                        </div>
+                                    </div>
+                                {/* <hr/> */}
+                                <br/>
+                                <div>
+                                    <h5 class="text-center">Sellers details</h5><hr/><br/>
+                                    <h6>Sellers Address:  </h6><p>{prod && prod.address}</p>
+                                    <h6>Sellers Mobile number:  </h6><p>{prod && prod.phone_no}</p>
+                                    {/* <h6>Whatsapp Handle: <a {prod && prod.address}><span/></a> </h6> */}
+
+                                </div>
+                                
+
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
+                            </div>
+                            </div>
+
+
+                                </div>
+
+
+                            
+
+                            </div>
+
+
+                           
                            
                          
                                 ))

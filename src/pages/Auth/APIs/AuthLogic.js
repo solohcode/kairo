@@ -1,5 +1,6 @@
 // import React from 'react'
 import { ProfileApi } from '../../Users/Apis/UserLogic'
+import { User } from  '../../../APIs/ProductsApis/User'
 import { history } from '../../../App'
 
 
@@ -37,6 +38,7 @@ function LoginApi(data){
            localStorage.setItem('login',JSON.stringify(data))
 
             ProfileApi(token)
+            User(token)
               console.log(status)
       }else{
         console.log(message)
@@ -49,6 +51,27 @@ function LoginApi(data){
 
 
 
+// API for log out request >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+const LogoutApi=()=>{
+
+    const Url = 'http://142.93.152.229/cairo/api/auth/logout'
+    const requestOptions={
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      }
+    }
+
+    fetch( Url, requestOptions ).then(async res=>{
+      const logout = await res.json()
+      console.log(logout)
+
+    }).catch(err=>{
+      console.log(err)
+    })
+
+}
+
 
 // API for register starts here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function RegisterApi(data){
@@ -59,4 +82,4 @@ function RegisterApi(data){
 
 
 
-export { LoginApi, RegisterApi }
+export { LoginApi, RegisterApi , LogoutApi}

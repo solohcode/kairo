@@ -7,7 +7,7 @@ import { Log_in } from './APIs/AuthLogic'
 export const msg = document.getElementById('msg')
 const Login = ()=>{
       
-    const [ load, setLoad ] = useState(false) 
+    // const [ load, setLoad ] = useState(false) 
 
         const [data, setData] = useState({
             email:"",

@@ -1,10 +1,14 @@
+// import React from  'react'
 
 
 
 
-import { Profile } from '../pages/Users/Apis/UserLogic'
+const Profile = JSON.parse(localStorage.getItem('profile'))    
+    
+    console.log(Profile)
 
-const ProfileData={
+    const ProfileData={
+
 
     
             first: Profile && Profile.first_name,
@@ -28,7 +32,7 @@ const ProfileData={
         }
 
 
-
+    
 
 
 export { ProfileData }

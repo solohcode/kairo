@@ -75,7 +75,7 @@ export class UserProfile extends Component {
                                                 </div>  
                                             </div>
                                         </div>
-                                        <div className="col-md-4">
+                                        <div className="col-md-3">
                                             <div className="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Products</h5>
@@ -84,13 +84,14 @@ export class UserProfile extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-4">
+                                        <div className="col-md-5">
                                             <div className="card">
                                                 <div class="card-body">
                                                     {/* <h5 class="card-title">Other</h5> */}
                                                     
                                                     <b class="card-text fa fa-link">Website:<a href="#" class="btn btn-link "> {ProfileData.web}</a></b>
-                                                    <b class="card-text fa fa-map-marker">Address:<p class=""> {ProfileData.address}.</p></b>
+                                                   <br/>
+                                                    <b class="card-text fa fa-map-marker">Address:<i class=""> {ProfileData.address}.</i></b>
 
                                                     
                                                 </div>

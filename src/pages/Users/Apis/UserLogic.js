@@ -25,7 +25,7 @@ export const ProfileApi=(token)=> {
                     setTimeout(function() { 
                         history.push('/dashboard')
 
-                     }, 1000)
+                     }, 2000)
 
                 }else{
                     console.log(status = false)
@@ -37,5 +37,4 @@ export const ProfileApi=(token)=> {
             })
      
 }
-export const Profile = JSON.parse(localStorage.getItem('profile'))
 

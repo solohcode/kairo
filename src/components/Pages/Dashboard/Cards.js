@@ -24,22 +24,13 @@ export class Cards extends Component {
                                     {/* <span className=" btn btn-sm btn-danger float-right mb-0 fa fa-plus"> Add products</span> */}
                                 </Link>
                                 <hr/>
-                            <div className="row mt-5">
-                            <div className="col-md-6">
+                            <div className=" mt-5">
                            
                                 <div className="card p-5 text-danger shadow">
                                 <h2><span className="text-white fa fa-tags"/></h2>
                                     <h3>Products Categories</h3>
                                     <h4>{this.state.NOC}</h4>
                                 </div>
-                            </div>
-                            <div className="col-md-6">
-                            <div className="card p-5 text-danger shadow">
-                            <h2><span className="text-white fa fa-eye"/></h2>
-                                    <h3>Number Of Profile Visits</h3>
-                                    <h4>{this.state.NOV}</h4>
-                                </div>
-                            </div>
                             </div>
                     </div>
                     </div>
