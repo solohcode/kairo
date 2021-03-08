@@ -14,10 +14,11 @@ export const ProfileApi=(token)=> {
             headers: {'authorization': 'Bearer '+ token}
         }
         
-            fetch(baseUrl+apiUrl , attach).then(async res=>{
+           return fetch(baseUrl+apiUrl , attach).then(async res=>{
                 let status
                 const profileData = await res.json();
                 const dataArr = profileData[0]
+
                 if(profileData){
                     localStorage.setItem('profile', JSON.stringify(dataArr))
                     alert(`Welcome ${dataArr.first_name}`)
@@ -31,6 +32,7 @@ export const ProfileApi=(token)=> {
                     console.log(status = false)
                 }
 
+                return dataArr
         
             }).catch(err=>{
                 alert(err + " connection error, pls fix.")

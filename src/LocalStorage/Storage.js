@@ -1,9 +1,10 @@
 // import React from  'react'
+import { ProfileApi } from '../pages/Users/Apis/UserLogic'
 
 
 
 
-const Profile = JSON.parse(localStorage.getItem('profile'))    
+const Profile =   ProfileApi
     
     console.log(Profile)
 
