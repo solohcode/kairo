@@ -12,18 +12,6 @@ CAIRO MARKET
 
 
 
-2)  LOGIN
-    http://142.93.152.229/cairo/api/auth/login
-    POST REQUEST
-
-    params
-    ----------
-    email
-    password
-
-
-
-
 3)  VERIFY EMAIL
     http://142.93.152.229/cairo/api/auth/verify_email/585239882684
     post request
@@ -49,59 +37,18 @@ CAIRO MARKET
     email, password, password_confirmation, token
 
 
-
-6)  LOGOUT
-    http://142.93.152.229/cairo/api/auth/logout
-    post request
+    ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
-    ADD PRODUCTS INTO DATABASE
-=================================================================
-http://142.93.152.229/cairo/api/add_products?token=
-
-POST REQUEST
-Parameters {
-    product_image, product_name, description, price
-}
-
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-SEARCH PRODUCTS ON LANDING PAGE
-=====================================
-http://142.93.152.229/cairo/api/search_products
-
-POST REQUEST
-Parameter {
-    search_term                                
-}
-
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-LISTS PRODUCTS ON LANDING PAGE
-======================================
-http://142.93.152.229/cairo/api/display_products
-
-GET REQUEST
-
-
-
-
-
-
-
-
-[9:20 AM, 2/26/2021] My MTN: [10:56, 1/25/2021] Mr AY Techend: DISPLAY CURRENT LOGGED IN USER PRODUCTS
+ DISPLAY CURRENT LOGGED IN USER PRODUCTS
     http://142.93.152.229/cairo/api/view_products?token=
     GET REQUEST
 
     USER DELETE HIS/HER PRODUCTS (4 is product id)
-    http://142.93.152.229/cairo/api/delete_product/4?token=
+    http://142.93.152.229/cairo/api/delete_product/4?token=       <<<<<<<<<<<<<<<<<<- TODAY
     GET REQUEST
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    FETCH PROFILE 
-    http://142.93.152.229/cairo/api/fetch_profile?token=
-    GET REQUEST
+   
 
     UPDATE PROFILE
     http://142.93.152.229/cairo/api/update_profile?token=
@@ -112,11 +59,10 @@ GET REQUEST
 [17:10, 1/25/2021] Mr AY Techend: SOLOMON MADE NEW CHANGES WHICH HAS BEEN FIXED
 =========================================
 
-UPDATE PROFILE
-    http://142.93.152.229/cairo/api/update_prof…
-[9:20 AM, 2/26/2021] My MTN: FETCH CATEGORIES INTO DROP DOWN SELECT TO UPLOAD PRODUCTS INTO DATABASE
+
+ FETCH CATEGORIES INTO DROP DOWN SELECT TO UPLOAD PRODUCTS INTO DATABASE
     ==========================================================================
-    GET REQUEST
+    GET REQUEST                                                                        <<<<<<<<<<<<<<<<<<<- TODAY
     http://142.93.152.229/cairo/api/fetch_categories?token=
 
 
@@ -128,3 +74,54 @@ UPDATE PROFILE
     Parameters {
         product_image, product_name, description, price, category
     }
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONSUMED APIs >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+ LOGIN
+    http://142.93.152.229/cairo/api/auth/login
+    POST REQUEST
+
+    params
+    ----------
+    email
+    password
+
+
+    LOGOUT
+    http://142.93.152.229/cairo/api/auth/logout
+    post request
+
+
+    SEARCH PRODUCTS ON LANDING PAGE
+=====================================
+http://142.93.152.229/cairo/api/search_products
+
+POST REQUEST
+Parameter {
+    search_term                                
+}
+
+
+LISTS PRODUCTS ON LANDING PAGE
+======================================
+http://142.93.152.229/cairo/api/display_products
+
+GET REQUEST
+
+
+ FETCH PROFILE 
+    http://142.93.152.229/cairo/api/fetch_profile?token=
+    GET REQUEST
