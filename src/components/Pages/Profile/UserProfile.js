@@ -12,7 +12,8 @@ export class UserProfile extends Component {
                     <div className="container-fluid">
                         <div className="UserProfile-top ">
                             <div className="text-center">
-                                <h3><span className="text-danger fa fa-user"/> User Profile</h3>
+                                <h3 class="d-inline"><span className="text-danger fa fa-user"/> User Profile</h3>
+                        <Link to="/products" className="d-sm-block d-md-none d-inline mt-2 float-right btn btn-lg btn-danger fa fa-shopping-cart"> Product Page</Link>
                                 <hr/>
                             </div>
                            
@@ -65,7 +66,7 @@ export class UserProfile extends Component {
                                 
 
                                 <div className="row">
-                                        <div className="col-md-4">
+                                        <div className="col-md-4 col-sm-4">
                                             <div className="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Services</h5>
@@ -75,7 +76,7 @@ export class UserProfile extends Component {
                                                 </div>  
                                             </div>
                                         </div>
-                                        <div className="col-md-3">
+                                        <div className="col-md-3 col-sm-3">
                                             <div className="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Products</h5>
@@ -84,7 +85,7 @@ export class UserProfile extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-5">
+                                        <div className="col-md-5 col-sm-5">
                                             <div className="card">
                                                 <div class="card-body">
                                                     {/* <h5 class="card-title">Other</h5> */}

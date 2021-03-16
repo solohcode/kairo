@@ -1,8 +1,10 @@
-
+import axios from 'axios'
 import { history } from '../../../App'
 
 
 const baseUrl = "http://142.93.152.229/cairo/api/"
+// const token = JSON.parse(localStorage.getItem('login')).token
+// console.log(token)
 
 
 export const ProfileApi=(token)=> {
@@ -21,12 +23,15 @@ export const ProfileApi=(token)=> {
 
                 if(profileData){
                     localStorage.setItem('profile', JSON.stringify(dataArr))
-                    alert(`Welcome ${dataArr.first_name}`)
+                    // alert(`Welcome ${dataArr.first_name}`)
 
                     setTimeout(function() { 
                         history.push('/dashboard')
-
-                     }, 2000)
+                        setTimeout(() =>{
+                            window.location.reload()
+                        }, 500)
+                        alert('hot reload in process please wait!')
+                     }, 1000)
 
                 }else{
                     console.log(status = false)
@@ -38,5 +43,31 @@ export const ProfileApi=(token)=> {
                 alert(err + " connection error, pls fix.")
             })
      
+}
+
+
+export const UpdateProfApi=(updates, token)=>{
+
+    const Url = 'update_profile?token='
+
+    const attach ={
+        headers: {
+            'Content-Type': 'multipart/form-data,application/json',
+            'authorization': 'Bearer '+ token
+        }
+    }
+
+    return axios.post(baseUrl+Url,updates, attach).then(async res=>{
+        const response = await res.json()
+        console.log(response)
+        if(response.status_code === 401){
+            history.push('/login')
+            alert('Oops your token has expired please re-login to get a new token!')
+        }
+        return response
+    }).catch(err =>{
+        console.log(err)
+        return err
+    })
 }
 

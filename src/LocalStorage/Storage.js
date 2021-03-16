@@ -4,9 +4,10 @@ import { ProfileApi } from '../pages/Users/Apis/UserLogic'
 
 
 
-const Profile =   ProfileApi
+// const Profile =   ProfileApi
+const Profile = JSON.parse(localStorage.getItem('profile'))
     
-    console.log(Profile)
+    // console.log(Profile)
 
     const ProfileData={
 

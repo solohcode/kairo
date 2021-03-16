@@ -40,30 +40,12 @@ CAIRO MARKET
     ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
 
- DISPLAY CURRENT LOGGED IN USER PRODUCTS
-    http://142.93.152.229/cairo/api/view_products?token=
-    GET REQUEST
 
-    USER DELETE HIS/HER PRODUCTS (4 is product id)
-    http://142.93.152.229/cairo/api/delete_product/4?token=       <<<<<<<<<<<<<<<<<<- TODAY
-    GET REQUEST
 
    
 
-    UPDATE PROFILE
-    http://142.93.152.229/cairo/api/update_profile?token=
-    POST REQUEST
-    Parameters {
-        first_name, last_name, phone_no, email, business_name, products, address, social_handle
-    }
-[17:10, 1/25/2021] Mr AY Techend: SOLOMON MADE NEW CHANGES WHICH HAS BEEN FIXED
-=========================================
 
 
- FETCH CATEGORIES INTO DROP DOWN SELECT TO UPLOAD PRODUCTS INTO DATABASE
-    ==========================================================================
-    GET REQUEST                                                                        <<<<<<<<<<<<<<<<<<<- TODAY
-    http://142.93.152.229/cairo/api/fetch_categories?token=
 
 
     NEW UPDATE ADD PRODUCTS INTO DATABASE (new parameter added => category)
@@ -88,7 +70,26 @@ CAIRO MARKET
 
    
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONSUMED APIs >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    UPDATE PROFILE
+    http://142.93.152.229/cairo/api/update_profile?token=
+    POST REQUEST
+    Parameters {
+        first_name, last_name, phone_no, email, business_name, products, address, social_handle
+    }
+[17:10, 1/25/2021] Mr AY Techend: SOLOMON MADE NEW CHANGES WHICH HAS BEEN FIXED
+=========================================
 
+ DISPLAY CURRENT LOGGED IN USER PRODUCTS
+    http://142.93.152.229/cairo/api/view_products?token=
+    GET REQUEST
+    USER DELETE HIS/HER PRODUCTS (4 is product id)
+    http://142.93.152.229/cairo/api/delete_product/4?token=       
+    GET REQUEST
+
+ FETCH CATEGORIES INTO DROP DOWN SELECT TO UPLOAD PRODUCTS INTO DATABASE
+    ==========================================================================
+    GET REQUEST                                                                       
+    http://142.93.152.229/cairo/api/fetch_categories?token=
 
  LOGIN
     http://142.93.152.229/cairo/api/auth/login

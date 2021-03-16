@@ -1,19 +1,21 @@
 import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchApi } from '../../../APIs/Search/SearchApi'
+// import { CategoryApi } from '../../../APIs/ProductsApis/User'
 
 class Demo extends Component{
     constructor(props){
         super(props)
         this.state = {
             search_term:"",
-            get:[]
+            get:[],
+            cat:[]
         }
     }
     
     // async componentDidMount(){
-    //     const get = await handleSubmit()
-    //     this.setState({get:get})
+    //     const get = await CategoryApi()
+    //     this.setState({cat:get})
     // }
 
 
@@ -26,33 +28,51 @@ class Demo extends Component{
         e.preventDefault()
         const param = {search_term: this.state.search_term}
         const alert = document.getElementById("message")
+        const btn = document.getElementById("button")
+        const search = document.getElementById("search-display")
+
 
 
 
         if(param.search_term == ""){
-            // alert.style.display="block"
+            alert.className="text-danger"
             alert.innerText="please input product name to search"
         }else{
+            search.style.display="block"
+            alert.innerText="Please wait your search is on it's way."
+            btn.innerText="requesting..."
             const get = await SearchApi(param)
             // console.log(get.message)
-            if(get.status === false){
-                alert.innerText= get.message
-                document.getElementById('search-head').style.display="none"
-            }else{
-                alert.style.display="none"
-                this.setState({get:get})
-                document.getElementById('search-head').style.display="block"
-            }
+            
+                    if(get.err){
+                        alert.innerText="connection error please connect to a network"
+                        alert.className="alert-danger text-center"
+                        // alert.innerText="no internet connection!"
+                    }else if(get.status == false){
+                        btn.innerText="Search"
+                        alert.style.display="block"
+                        alert.className="text-danger text-center"
+                        alert.innerText="product not available"
+                        document.getElementById('search-head').style.display="none"
+                    }else{
+
+                         this.setState({get:get})
+
+                        btn.innerText="Search"
+                        alert.style.display="block"
+                        // alert.className="text-success"
+                        alert.innerText="check search result below"
+                        document.getElementById('search-head').style.display="block"
+                    }
+               
         }
-        
-        // console.log(param)
-        // console.log(param.search_term)
         
     }
 
      
 render(){
         const {get} = this.state
+        // const {cat} = this.state
 
     return (
         <div>
@@ -74,51 +94,57 @@ render(){
                             <select>
                                 <option>Select Categories</option>
                                 <option>All</option> 
-                                <option>Food and wear</option>
+                                {
+                                    // cat.map(cat =>(
+                                    //     <option key={cat.id} >{cat.category_name}</option>
+                                    // ))
+                                }
                             </select>
                         </div>
                         <div className="col-md-2 my-2">
-                            <button onClick={this.handleSubmit} className="btn btn-danger btn-lg"> Search</button>
+                            <button id="button" onClick={this.handleSubmit} className="btn btn-danger btn-lg"> Search</button>
                         </div>
                     </div>
+                        <div class=" col-12">
+                        <p class=" mess" id="message">Sell at ease buy at less any product of different categories.</p>
+                        </div>
 
-                    <div className="category my-5">
+                    <div className="category  mb-5">
                         <div>
-                        <p>Sell at ease buy at less any product of different categories.</p>
                         <h5>Top Selling Categories</h5>
                         </div>
                         <div className="text-center my-5 cards row text-danger">
                             <div className="col-md-3 "></div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                     <span className="icon fas fa-lemon"/>
                                     <p>Foods</p>
                                 </div>
                             </div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                         <span className="icon fas fa-tshirt "/>
                                         <p>Wears</p>
                                 </div>
                             </div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                         <span className=" icon fas fa-laptop "/>
                                         <p>Gadgets</p>
                                 </div>                            </div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-blender "/>
                                     <p>Household</p>
                                 </div>
                             </div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-pills "/>
                                     <p>Health</p>
                                 </div>
                             </div>
-                            <div className="col-md-1  card sub-card">
+                            <div className="col-md-1 col-sm-1  card sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-gem "/>
                                     <p>Fashion</p>
@@ -142,9 +168,9 @@ render(){
                 <div className="search-Product my-5">
                     <div className="text-center">
                     </div>
-                    <div className="">
+                    <div className="" id="search-display" style={{display:'none'}}>
 
-                        <h2 id="message" className="alert-warning text-center" ></h2>
+                        {/* <h6 id="message" className="message alert-warning text-center" ></h6> */}
 
                     <div id="search-head" style={{display:'none'}} class="text-center ">
                         <h3>Search result <span class="text-danger fas fa-cart-arrow-down"/></h3>
@@ -154,7 +180,9 @@ render(){
                     <div className="row">
 
                     { 
-                        get.map( prod =>(
+
+                         get=="" ? <h6 class=" text-center"><span class="fa fa-smile-o spinner-border"/> please wait!</h6> :
+                        get.map(prod =>(
                            
                               
                         <div key={prod.id} className="col-md-3">
@@ -163,17 +191,17 @@ render(){
                                 <div class="card-body">
                                 <h5 class="card-title">{prod && prod.product_name}</h5>
                                 <p class="card-text float-left">{prod && prod.description}</p>
-                               <br/>
-                                   <div className="col-12 mt-3 mx-auto">
-                                       <span className="btn btn-outline-danger prod-link" type="button" data-toggle="modal" data-target={`#modal${prod.id}`}>More</span>
-                                    </div>
-                                </div>
-                                <div className=" card-footer" id="product-footer">
+                               <br/><br/>
                                 <div className="float-left">
                                         <b>{prod && prod.category}</b> <span>|</span>
                                     </div>
                                     <div class="card-text float-right">
                                         <p >{prod && prod.price}</p>
+                                    </div>
+                                </div>
+                                <div className="text-center card-footer">
+                                   <div className="mx-auto">
+                                       <span className="btn btn-outline-danger prod-link" type="button" data-toggle="modal" data-target={`#modal${prod.id}`}>view</span>
                                     </div>
                                 </div>
 
@@ -207,15 +235,15 @@ render(){
                                 <h5 class="text-center">Sellers details</h5><hr/><br/>
                                 <h6>Sellers Address:  </h6><p>{prod && prod.address}</p>
                                 <h6>Sellers Mobile number:  </h6><p>{prod && prod.phone_no}</p>
-                                <h6>Whatsapp Handle:  </h6><a href={`https://wa.me/${prod && prod.phone_no}`}><span className="fas fa-whatsapp"/></a>
+                                <h6 class="d-inline">Whatsapp Handle:  </h6><a href={`https://wa.me/${prod && prod.phone_no}`} className="mx-3 d-inline btn btn-outline-success rounded-circle"><span className="fa fa-whatsapp"/></a>
 
                             </div>
                             
 
                             </div>
-                            <div class="modal-footer">
+                            {/* <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+                            </div> */}
                         </div>
                         </div>
                         </div>

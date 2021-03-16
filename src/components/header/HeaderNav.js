@@ -65,7 +65,7 @@ const Header=()=> {
                     </li>
                     <li class="nav-item  mx-3">
                     <div class="dropdown bg-light">
-                        <Link class="drop-btn nav-link link">More <span class="fas fa-caret-down"/></Link>
+                        <Link class="drop-btn nav-link link">More <span class="fa fa-caret-down"/></Link>
                         <div class="dropdown-content">
                             <Link class="nav-link link" to="/createBusiness">Add business</Link>
                             <Link class="nav-link link" to="/contact">Area map</Link>

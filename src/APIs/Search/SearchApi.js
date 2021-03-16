@@ -22,6 +22,7 @@ export const SearchApi=(param)=>{
     })
     .catch(err =>{
         console.log(err)
+        return err
     })
 }
 

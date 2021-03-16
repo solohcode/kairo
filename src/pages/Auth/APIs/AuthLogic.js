@@ -1,6 +1,6 @@
 // import React from 'react'
 import { ProfileApi } from '../../Users/Apis/UserLogic'
-import { User } from  '../../../APIs/ProductsApis/User'
+import { User, CategoryApi } from  '../../../APIs/ProductsApis/User'
 import { history } from '../../../App'
 
 
@@ -21,30 +21,29 @@ function LoginApi(data){
         }
       }
 
-    fetch(baseUrl+loginUrl, requestOptions)
-    .then(
-
-    )
+   return fetch(baseUrl+loginUrl, requestOptions)
     .then(async res=>{
       const data = await res.json()
       const status = data.status
       const token = data.token
       const message = data.message
-      localStorage.setItem('err', JSON.stringify(data))
 
-      
+      localStorage.setItem('login', JSON.stringify(data))
 
       if(data.status){
-           localStorage.setItem('login',JSON.stringify(data))
 
             ProfileApi(token)
             User(token)
+            // CategoryApi(token)
               console.log(status)
       }else{
         console.log(message)
       }
+      return data
+
     }).catch(err=>{
-        alert(err + " connection error, please check your connection and try again.")
+        // alert(err + " connection error, please check your connection and try again.")
+        console.log(err)
     })
    
 }
@@ -52,25 +51,25 @@ function LoginApi(data){
 
 
 // API for log out request >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-const LogoutApi=()=>{
+// const LogoutApi=()=>{
 
-    const Url = 'http://142.93.152.229/cairo/api/auth/logout'
-    const requestOptions={
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      }
-    }
+//     const Url = 'http://142.93.152.229/cairo/api/auth/logout'
+//     const requestOptions={
+//       method:"POST",
+//       headers:{
+//         "Content-Type":"application/json",
+//       }
+//     }
 
-    fetch( Url, requestOptions ).then(async res=>{
-      const logout = await res.json()
-      console.log(logout)
+//     fetch( Url, requestOptions ).then(async res=>{
+//       const logout = await res.json()
+//       console.log(logout)
 
-    }).catch(err=>{
-      console.log(err)
-    })
+//     }).catch(err=>{
+//       console.log(err)
+//     })
 
-}
+// }
 
 
 // API for register starts here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -82,4 +81,4 @@ function RegisterApi(data){
 
 
 
-export { LoginApi, RegisterApi , LogoutApi}
+export { LoginApi, RegisterApi }
