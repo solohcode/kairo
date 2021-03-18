@@ -6,7 +6,11 @@ import { history } from '../../../App'
 
 
 const login = JSON.parse(localStorage.getItem('login'))
-const token = login.token
+if(login == null){
+    console.log('empty')
+}else{
+     var token = login.token
+}
 export class Edit extends Component {
 
     constructor(props){
@@ -45,7 +49,7 @@ export class Edit extends Component {
             })
         };
 
-        handleSubmit = (e) => {
+        handleSubmit =async (e) => {
             e.preventDefault();
             const alert = document.getElementById("msg")
             const btn = document.getElementById("button")
@@ -72,9 +76,10 @@ export class Edit extends Component {
                     alert.style.display="block"
                     alert.innerText="please choose a photo and fill in necessary datas"
                 }else{
-                    const Edit = UpdateProfApi(datas, token)
+                    const Edit =await UpdateProfApi(datas, token)
                     alert.style.display="none"
-                    // load.style.display="block"
+                    // btn.className="spinner-border"
+                    load.className="spinner-border spinner-border-sm"
                     
                     if(Edit){
                         btn.innerText="Updating..."
@@ -109,12 +114,10 @@ export class Edit extends Component {
                         </div>
                         <div className="col-6 mt-2">
                             <div class="input-group mb-3 mx-auto">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Upload image</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" name="profile_pics" onChange={this.handleImageChange} class="custom-file-input" id="inputGroupFile01" required/>
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            
+                            <div class="form-group">
+                                {/* <label   label for="product_image">choose image file</label> */}
+                                <input type="file" name="product_image" onChange={this.handleImageChange} class="form-control"  />
                             </div>
                             </div>
                         </div>
@@ -245,9 +248,14 @@ export class Edit extends Component {
                     </div>
                     </div>
                         <div className="mb-2 mt-2 col-md-12">
-                            <div class="row">
-                                <button onClick={this.handleSubmit} id="button" className="col-3 btn btn-lg btn-danger mx-auto">Update <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" id="loader" style={{display: 'none'}}/></button>
-                               <div class="col-9">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-3 mx-auto">
+                                <button onClick={this.handleSubmit} id="button" className="btn btn-lg btn-danger"> 
+                                Update 
+                                <span className="" id="loader" role="status" aria-hidden="true"></span>
+                                </button>
+                                </div>
+                               <div class="col-md-9">
                                 <span class="alert alert-warning" style={{display:'none'}} id="msg"></span>
                                 </div>
                             </div>

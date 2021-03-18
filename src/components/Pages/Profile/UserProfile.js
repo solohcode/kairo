@@ -13,18 +13,19 @@ export class UserProfile extends Component {
                         <div className="UserProfile-top ">
                             <div className="text-center">
                                 <h3 class="d-inline"><span className="text-danger fa fa-user"/> User Profile</h3>
-                        <Link to="/products" className="d-sm-block d-md-none d-inline mt-2 float-right btn btn-lg btn-danger fa fa-shopping-cart"> Product Page</Link>
+                        <Link to="/products" className="d-sm-block d-md-none d-inline mt-4 float-right btn btn-danger fa fa-shopping-cart"> Product Page</Link>
                                 <hr/>
                             </div>
+                            <br/>
                            
 
                             <div className="row">
                             <ul className="col-md-6">
-                            <li className="d-inline ml-3">
+                            <li className="d-inline ">
                                 <img src={ProfileData.dp} alt="user" width="100px" height="100px" className="rounded-circle border"/>
                             </li>
                             <li className="d-inline float-right ">
-                                <div className="float-left mt-2 mr-5">
+                                <div className="float-left mt-2 ">
                                 <h4 className="d-block">{ProfileData.name}</h4>
                                 <a href={`mailto:`& ProfileData.mail} className="text-dark d-block btn-link">{ProfileData.mail}</a>
                                 <a href={`mailto:`& ProfileData.phone} className="text-dark d-block btn-link">{ProfileData.phone}</a>

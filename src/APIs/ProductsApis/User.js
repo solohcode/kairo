@@ -3,8 +3,8 @@ import { history } from '../../App'
 
 
 const baseUrl = 'http://142.93.152.229/cairo/api/'
-const login = JSON.parse(localStorage.getItem('login'))
-export const token =  login.token 
+// const login = JSON.parse(localStorage.getItem('login'))
+// export const token =  login.token 
 
 
 const User = (token)=>{
@@ -16,10 +16,10 @@ const User = (token)=>{
         headers: {'authorization': 'Bearer '+ token}
     }
 
-    fetch(baseUrl+Url , attach).then(async res =>{
+    return fetch(baseUrl+Url , attach).then(async res =>{
         const Prods = await res.json()
-        localStorage.setItem('userProduct', JSON.stringify(Prods))
         console.log(Prods)
+        return Prods
     }).catch(err =>{
         alert(err)
     })

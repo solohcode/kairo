@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { CategoryApi, AddProductApi } from '../../../APIs/ProductsApis/User'
+import { CategoryApi, AddProductApi, User } from '../../../APIs/ProductsApis/User'
 
 
 
-const Prods = JSON.parse(localStorage.getItem('userProduct'))
-const Datas = Prods.data
-const token = JSON.parse(localStorage.getItem('login')).token 
+const login = JSON.parse(localStorage.getItem('login'))
+if(login == null){
+    console.log('login data not available')
+}else{
+     var token = login.token 
+}
 
 export class UserProducts extends Component {
     
@@ -20,10 +23,10 @@ export class UserProducts extends Component {
             get:[],
             Add:{
                 product_image: [],
-                product_name: '',
-                description: '',
-                price:'',
-                category:''
+                product_name: [],
+                description: [],
+                price:[],
+                category:[]
                 }
         }
       }
@@ -32,12 +35,32 @@ export class UserProducts extends Component {
 
     
     async componentDidMount(){
+        const prod = await User(token)
         const get = await CategoryApi(token)
+
+        const alert = document.getElementById("prod-msg")
+        const load = document.getElementById("prod-load")
+
         this.setState({
             get:get ,
-            data: Datas
         })
-
+        if(prod){
+            load.style.display="block"
+            if(prod.data){
+                load.style.display="none"
+                this.setState({
+                    data:prod.data
+                })
+            }else{
+                alert.style.display="block"
+                alert.className="alert alert-danger"
+                alert.innerText="connection error!"  
+            }
+        }else{
+            alert.style.display="block"
+            alert.className="alert alert-danger"
+            alert.innerText="connection error!"
+        }
         
         
     }
@@ -68,11 +91,11 @@ export class UserProducts extends Component {
 
         const {Add} = this.state
         const data = new FormData()
-        data.append('product_image',Add.product_image)
-        data.append('product_name',Add.product_name)
-        data.append('description',Add.description)
-        data.append('price',Add.price)
-        data.append('category',Add.category)
+        data.append('product_image[0]',Add.product_image)
+        data.append('product_name[0]',Add.product_name)
+        data.append('description[0]',Add.description)
+        data.append('price[0]',Add.price)
+        data.append('category[0]',Add.category)
         console.log(data)
 
         // console.log(data)
@@ -86,7 +109,7 @@ export class UserProducts extends Component {
             alert.style.display="block"
             alert.innerText= ''
             alert.className="spinner-border"
-            var AddApi =await AddProductApi([data], token)
+            var AddApi =await AddProductApi( data, token)
             
             if(AddApi){
                 if(AddApi.status == false){
@@ -94,7 +117,9 @@ export class UserProducts extends Component {
                     alert.className="alert alert-warning"
                     alert.innerText= AddApi.message
                 }else{
-    
+                    alert.style.display="block"
+                    alert.className="alert alert-success"
+                    alert.innerText= "Upload successful"
                 }
             }else{
                 alert.style.display="block"
@@ -138,21 +163,26 @@ export class UserProducts extends Component {
                         <span className="d-none d-md-inline mt-2 float-right btn btn-lg btn-danger fa fa-cart-plus" type="button" data-bs-toggle="modal" data-bs-target="#addProduct"> Add Products</span>
                         
                         {/* <div class=""> */}
-                            <span data-bs-toggle="tooltip modal" data-bs-placement="bottom" title="Add Product" class=" d-block d-sm-none btn btn-danger position-absolute top-1 end-0 rounded-circle fa fa-plus" type="button" data-bs-target="#addProduct"/>
+                            <span class=" d-block d-sm-none btn  btn-danger fa fa-plus" type="button" data-bs-toggle="modal" data-bs-target="#addProduct"> add product</span>
                         {/* </div> */}
                     </div>
                     <hr/>
                     <div className="">
+                        
                     <div className="row">
+                        <div className="col-12">
+                            <span class="spinner-border" id="prod-load" style={{display:"none"}}/>
+                            <span className="alert alert-warning" id="prod-msg" style={{display:"none"}}></span>
+                        </div>
                     { 
                         
-                   
+                   data== null? <span className="spinner-border">please wait...</span>:
                         data.map( data =>(
                            
                               
                               <div key={data.id} className="col-md-3">
                                 <div class="card border-none shadow mb-5 rounded">
-                                    <img class="card-img-top" src={data.image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
+                                    <img class="card-img-top" src={data.image} alt="product pic" style={{width:'80%',height:'80px',margin:'0 auto'}}/>
                                     <div class="card-body">
                                     <h5 class="card-title">{data.product_name}</h5>
                                     <p class="card-text">{data.description}</p>
@@ -319,19 +349,18 @@ export class UserProducts extends Component {
                                         </div>
                                         <div className="form-group">
                                         <label for="category">Category</label>
-                                        <select name="category" onSelect={this.handleChange} class="form-select" aria-label="Default select example" value={this.state.Add.category}>
+                                        <select name="category" onChange={this.handleChange} class="form-select" aria-label="Default select example">
 
                                             <option selected>Select Category</option>
-
                                             {
                                                 get==null? <option class="alert alert-danger">please connect to a network to view available categories.</option> :
-                                            get.map(cat =>( 
-                                                <option value={cat.category_name} key={cat.id}>{cat.category_name}</option> 
+                                            get.map((cat, i) =>( 
+                                                <option value={cat.id} key={cat.id}>{cat.category_name}</option> 
                                             ))
                                             }
                                         </select>
                                         </div>
-                                        <div className="form-group">
+                                        <div className="form-group" id="other">
                                             <label for="price">Other category if not available above</label>
                                                 <input type="text" name="category" onChange={this.handleChange} class="form-control" value={this.state.Add.category}   required />
                                         </div>
