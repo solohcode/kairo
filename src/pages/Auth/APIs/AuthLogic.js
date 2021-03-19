@@ -73,10 +73,45 @@ function LoginApi(data){
 // API for register starts here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function RegisterApi(data){
 
-    fetch()
+  const url = "auth/register"
+
+ const add = {
+   method: "POST",
+   body: JSON.stringify(data),
+   headers:{
+    "Content-Type": 'application/json'
+   }
+ }
+
+return fetch(baseUrl+url, add).then( async res=>{
+   const reply= res.json()
+   return reply
+ } ).catch(err=>{
+  return err
+ })
+}
+
+
+// verify email api stats here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+function VerifyApi(id){
+
+  const url = `auth/verify_email/${id}`
+  const attach ={
+    method:'GET',
+    headers:{
+      'content-type':'application/json'
+    }
+ }
+  return fetch(baseUrl+url, attach).then( async res=>{
+    const reply = await res.json()
+
+    return reply
+  }).catch(err=>{
+    return err
+  })
 
 }
 
 
 
-export { LoginApi, RegisterApi }
+export { LoginApi, RegisterApi, VerifyApi }

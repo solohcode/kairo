@@ -43,7 +43,7 @@ const Login = ()=>{
                     }else{
                         alert.style.display="block"
                     alert.className="text-center alert alert-success"
-                    alert.innerText="Welcome back"
+                    alert.innerText="Welcome"
                     }
                 }else{
                     alert.style.display="block"

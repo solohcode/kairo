@@ -186,10 +186,10 @@ export class UserProducts extends Component {
                               
                               <div key={data.id} className="col-md-3">
                                 <div class="card border-none shadow mb-5 rounded">
-                                    <img class="card-img-top" src={data.image} alt="product pic" style={{width:'80%',height:'80px',margin:'0 auto'}}/>
+                                    <img class="card-img-top" src={data.image} alt="product pic" style={{width:'100%',height:'150px',margin:'0 auto'}}/>
                                     <div class="card-body">
                                     <h5 class="card-title">{data.product_name}</h5>
-                                    <p class="card-text">{data.description}</p>
+                                    <small class="card-text">{data.description}</small>
                                     <hr/>
                                         <div className="float-left">
                                             <b>{data.category}</b> <span>|</span>

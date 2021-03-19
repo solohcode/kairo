@@ -22,6 +22,7 @@ import CreateBusiness from './pages/Users/CreateBusiness'
 import Forgot from './pages/Auth/Forgot'
 import Verify from './pages/Auth/Verify'
 import Contact from './pages/Contact'
+// import { id } from './pages/Auth/APIs/AuthLogic'
 
 
 export const history = createBrowserHistory()
@@ -45,7 +46,7 @@ return (
                     <Route path="/editProfile" component={EditProfile}/>
                     <Route path="/products" component={Products}/>
                     <Route path="/forgotPassword" component={Forgot}/>
-                    <Route path="/verifyEmail" component={Verify}/>
+                    <Route path={`/verify_email/:id`} component={Verify}/>
                     <Route path="/contact" component={Contact}/>
                     <Route path="/createBusiness" component={CreateBusiness}/>
                 </Switch>
