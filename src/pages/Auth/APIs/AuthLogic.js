@@ -1,7 +1,5 @@
 // import React from 'react'
 import { ProfileApi } from '../../Users/Apis/UserLogic'
-import { User, CategoryApi } from  '../../../APIs/ProductsApis/User'
-import { history } from '../../../App'
 
 
 const baseUrl = "http://142.93.152.229/cairo/api/"
@@ -33,7 +31,7 @@ function LoginApi(data){
       if(data.status){
 
             ProfileApi(token)
-            User(token)
+            // User(token)
             // CategoryApi(token)
               console.log(status)
       }else{

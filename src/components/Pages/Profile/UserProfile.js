@@ -27,15 +27,13 @@ export class UserProfile extends Component {
                             <li className="d-inline float-right ">
                                 <div className="float-left mt-2 ">
                                 <h4 className="d-block">{ProfileData.name}</h4>
-                                <a href={`mailto:`& ProfileData.mail} className="text-dark d-block btn-link">{ProfileData.mail}</a>
-                                <a href={`mailto:`& ProfileData.phone} className="text-dark d-block btn-link">{ProfileData.phone}</a>
+                                <a href={`mailto:${ ProfileData.mail}`} target="_blank" rel="noopener noreferrer" className="text-dark d-block btn-link">{ProfileData.mail}</a>
+                                <a href={`mailto:${ ProfileData.phone}`} target="_blank" rel="noopener noreferrer" className="text-dark d-block btn-link">{ProfileData.phone}</a>
                                 </div>
                             </li>
                             </ul>
                             <div className="col-md-6 float-right text-center">
-                                <a href="" className="m-2 btn btn-outline-danger rounded-circle"><span style={{width:"15px"}} className=" fa fa-facebook"/></a>
-                                <a href="" className="m-2 btn btn-outline-danger rounded-circle"><span className=" fa fa-whatsapp"/></a>
-                                <a href="" className="btn btn-outline-danger rounded-circle"><span className=" fa fa-twitter"/></a>
+                                <a href={`https://wa.me/${ProfileData.handle}`} target="_blank" rel="noopener noreferrer" className="m-2 btn btn-outline-danger rounded-circle"><span className=" fa fa-whatsapp"/></a>
 
                                     <br/>
                                 <Link to='/editProfile' className="mt-4 btn btn-outline-secondary btn-lg fa fa-edit"> Edit Profile</Link>
@@ -49,8 +47,8 @@ export class UserProfile extends Component {
                                     <hr/>
                                     <p className="pr-5">{ProfileData.user}.</p>
                                     <div className="text-start">
-                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {ProfileData.mail}</a>
-                                        <a href="" className="btn-link text-dark d-block" ><span className="fa fa-phone"/> : {ProfileData.phone}</a>
+                                        <a href={`mailto:${ProfileData.mail}`} target="_blank" rel="noopener noreferrer" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {ProfileData.mail}</a>
+                                        <a href={`mailto:${ProfileData.phone}`} target="_blank" rel="noopener noreferrer" className="btn-link text-dark d-block" ><span className="fa fa-phone"/> : {ProfileData.phone}</a>
                                     </div>
                                 </div>
                                 <div className="col-md-6 border-left border-right about-business">
@@ -91,7 +89,7 @@ export class UserProfile extends Component {
                                                 <div class="card-body">
                                                     {/* <h5 class="card-title">Other</h5> */}
                                                     
-                                                    <b class="card-text fa fa-link">Website:<a href="#" class="btn btn-link "> {ProfileData.web}</a></b>
+                                                    <b class="card-text fa fa-link">Website:<a href={`https://${ProfileData.web}`} target="_blank" rel="noopener noreferrer" class="btn btn-link "> {ProfileData.web}</a></b>
                                                    <br/>
                                                     <b class="card-text fa fa-map-marker">Address:<i class=""> {ProfileData.address}.</i></b>
 

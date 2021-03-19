@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import user from '../../../images/user.png'
 import { ProfileData } from '../../../LocalStorage/Storage'
 import { UpdateProfApi } from '../../../pages/Users/Apis/UserLogic'
-import { history } from '../../../App'
+// import { history } from '../../../App'
 
 
 const login = JSON.parse(localStorage.getItem('login'))
@@ -17,84 +17,93 @@ export class Edit extends Component {
         super(props)
 
         this.state={
-            profile_pics: null,
-            first_name:'',
-            last_name:'',
-            about_user:'',
-            email:'',
-            phone_no:'',
-            social_handle:'',
-            business_name:'',
-            about_business:'',
-            products:'',
-            services:'',
-            address:'',
-            business_website:''
+            Update:{
+                profile_pics: null,
+                first_name:'',
+                last_name:'',
+                about_user:'',
+                email:'',
+                phone_no:'',
+                social_handle:'',
+                business_name:'',
+                about_business:'',
+                products:'',
+                services:'',
+                address:'',
+                business_website:''
+            }
         }
     }
 
 
 
     
-        handleChange = (e) => {
-            this.setState({
-            [e.target.name]: e.target.value
-            })
-            return e.target.value
-        };
+        handleChange=(e)=>{
+        e.preventDefault()
+        const {name, value} = e.target
+        const {Update} = this.state
+        if(name === "profile_pics"){
+            this.setState({ Update:{...Update,[name]:e.target.files[0]}})
+        }else{
+            this.setState({ Update:{...Update,[name]:value}})
+        }
+    }
 
-        handleImageChange = (e) => {
-            this.setState({
-            profile_pics: e.target.files[0]
-            })
-        };
 
         handleSubmit =async (e) => {
             e.preventDefault();
+            const {Update} = this.state
             const alert = document.getElementById("msg")
             const btn = document.getElementById("button")
-            const load = document.getElementById("loader")
 
-            const datas = this.state;
+            // const {Update} = this.state
             const editProf = new FormData();
-            editProf.append('profile_pics', this.state.profile_pics)
-                editProf.append('first_name', this.state.first_name)
-                editProf.append('last_name', this.state.last_name)
-                editProf.append('about_user', this.state.about_user)
-                editProf.append('email', this.state.email)
-                editProf.append('phone_no', this.state.phone_no)
-                editProf.append('social_handle', this.state.social_handle)
-                editProf.append('business_name', this.state.business_name)
-                editProf.append('about_business', this.state.about_business)
-                editProf.append('products', this.state.products)
-                editProf.append('services', this.state.services)
-                editProf.append('address', this.state.address)
-                editProf.append('business_website', this.state.business_website)
+            editProf.append('profile_pics', Update.profile_pics)
+                editProf.append('first_name', Update.first_name)
+                editProf.append('last_name', Update.last_name)
+                editProf.append('about_user', Update.about_user)
+                editProf.append('email', Update.email)
+                editProf.append('phone_no', Update.phone_no)
+                editProf.append('social_handle', Update.social_handle)
+                editProf.append('business_name', Update.business_name)
+                editProf.append('about_business', Update.about_business)
+                editProf.append('products', Update.products)
+                editProf.append('services', Update.services)
+                editProf.append('address', Update.address)
+                editProf.append('business_website', Update.business_website)
                 
 
-                if(datas.profile_pics == null){
+                if(Update.profile_pics == null){
                     alert.style.display="block"
                     alert.innerText="please choose a photo and fill in necessary datas"
                 }else{
-                    const Edit =await UpdateProfApi(datas, token)
-                    alert.style.display="none"
-                    // btn.className="spinner-border"
-                    load.className="spinner-border spinner-border-sm"
+                    alert.innerText=""
+                    alert.style.display="block"
+                    alert.className="spinner-border"
+                    btn.innerText="Updating..."
+                    const Edit =await UpdateProfApi(editProf, token)
                     
                     if(Edit){
-                        btn.innerText="Updating..."
-                        // alert.style.display="block"
-                        // alert.innerText= Edit.message
 
-                        if(Edit.message){
-                        load.style.display="none"
+                        if(Edit.status === true){
                         btn.innerText="Update"
+                        alert.style.display="block"
+                        alert.className="alert alert-success"
+                        alert.innerText=Edit.message+" re-login to view update"
+                        }else{
+                            btn.innerText="Update"
+                            alert.style.display="block"
+                            alert.className="alert alert-danger"
+                            alert.innerText=Edit.message 
                         }
                     }else{
-
+                        btn.innerText="Update"
+                        alert.style.display="block"
+                        alert.className="alert alert-danger"
+                        alert.innerText="Update failed!"
                     }
                 }
-                console.log(datas)
+                // console.log(Update)
             
           };
 
@@ -117,7 +126,7 @@ export class Edit extends Component {
                             
                             <div class="form-group">
                                 {/* <label   label for="product_image">choose image file</label> */}
-                                <input type="file" name="product_image" onChange={this.handleImageChange} class="form-control"  />
+                                <input type="file" name="profile_pics" onChange={this.handleChange} class="form-control"  />
                             </div>
                             </div>
                         </div>
@@ -249,12 +258,9 @@ export class Edit extends Component {
                     </div>
                         <div className="mb-2 mt-2 col-md-12">
                             <div class="row d-flex justify-content-center">
-                                <div class="col-md-3 mx-auto">
-                                <button onClick={this.handleSubmit} id="button" className="btn btn-lg btn-danger"> 
-                                Update 
-                                <span className="" id="loader" role="status" aria-hidden="true"></span>
-                                </button>
-                                </div>
+                                {/* <div class=""> */}
+                                <button onClick={this.handleSubmit} id="button" className="col-md-3 mx-auto btn btn-lg btn-danger"> Update </button>
+                                {/* </div> */}
                                <div class="col-md-9">
                                 <span class="alert alert-warning" style={{display:'none'}} id="msg"></span>
                                 </div>

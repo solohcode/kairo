@@ -181,7 +181,7 @@ render(){
 
                     { 
 
-                         get=="" ? <h6 class=" text-center"><span class="fa fa-smile-o spinner-border"/> please wait!</h6> :
+                         get=== [] ? <h6 class=" text-center"><span class="spinner-border"/> please wait..</h6> :
                         get.map(prod =>(
                            
                               

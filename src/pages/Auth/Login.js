@@ -26,7 +26,7 @@ const Login = ()=>{
         
           const handleSubmit =async(e)=>{
             e.preventDefault()
-            if(data.email == "" || data.password == ""){
+            if(data.email === "" || data.password === ""){
                 alert.style.display="block"
                 alert.innerText="please input necessary data."
             }else{
@@ -35,7 +35,7 @@ const Login = ()=>{
                var Log = await LoginApi(data)
                 if(Log){
                     btn.innerText="please wait..."
-                    if(Log.status == false){
+                    if(Log.status === false){
                         loader.style.display="none"
                         btn.innerText="Login"
                         alert.style.display="block"
@@ -73,7 +73,7 @@ const Login = ()=>{
                         <h3 >You don't have an account? <Link to="/register" className="btn btn-lg btn-link text-danger">Register</Link></h3>
                     </div>
 
-                    <h5 className=" text-center alert alert-warning" id="msg" role="alert" style={{display:'none'}}></h5>
+                    <span className=" text-center alert alert-warning" id="msg" role="alert" style={{display:'none'}}></span>
                     
 
                     <div className="card mb-5 mx-5 bg-white rounded-5" style={{borderRadius:'15px'}}>

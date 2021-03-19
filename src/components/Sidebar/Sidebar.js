@@ -26,7 +26,7 @@ export class Sidebar extends Component {
                                 <hr className="text-white" style={{color:'white',}}/>
                                 <br/><br/><br/><br/>
 
-                                <Link to="/" className="btn btn-lg btn-outline-danger mb-5 my-5 fa fa-sign-out"> Log out</Link>
+                                <Link to="/" className="btn btn-lg btn-outline-danger mb-5 my-5 fa fa-sign-out" onClick={() => localStorage.clear()}> Log out</Link>
                            <br/>
                 </div>
             </div>

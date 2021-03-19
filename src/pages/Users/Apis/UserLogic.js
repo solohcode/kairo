@@ -17,7 +17,6 @@ export const ProfileApi=(token)=> {
         }
         
            return fetch(baseUrl+apiUrl , attach).then(async res=>{
-                let status
                 const profileData = await res.json();
                 const dataArr = profileData[0]
 
@@ -34,7 +33,7 @@ export const ProfileApi=(token)=> {
                      }, 1000)
 
                 }else{
-                    console.log(status = false)
+                    console.log('false')
                 }
 
                 return dataArr
@@ -57,15 +56,16 @@ export const UpdateProfApi=(updates, token)=>{
         }
     }
 
-    return axios.post(baseUrl+Url,updates, attach).then(async res=>{
-        const response = await res.json()
+    return axios.post(baseUrl+Url,updates, attach).then( res=>{
+        const response = res.data
         console.log(response)
-        if(response.status_code === 401){
+    
+        return response
+    }).catch(err =>{
+        if(err === "Request failed with status code 401"){
             history.push('/login')
             alert('Oops your token has expired please re-login to get a new token!')
         }
-        return response
-    }).catch(err =>{
         console.log(err)
         return err
     })

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { CategoryApi, AddProductApi, User } from '../../../APIs/ProductsApis/User'
+import { CategoryApi, AddProductApi, User ,DelProdApi} from '../../../APIs/ProductsApis/User'
 
 
 
@@ -45,7 +44,7 @@ export class UserProducts extends Component {
             get:get ,
         })
         if(prod){
-            load.style.display="block"
+            // load.style.display="block"
             if(prod.data){
                 load.style.display="none"
                 this.setState({
@@ -76,13 +75,7 @@ export class UserProducts extends Component {
         }
     }
 
-    // handleImageChange=(e)=>{
-    //         // const {name, files} = e.target
-    //         const {Add} = this.state
-    //         this.setState({
-    //         [Add.product_image] : e.target.files[0]
-    //         }) 
-    // }
+    
 
     handleSubmit=async(e)=>{
         e.preventDefault()
@@ -101,7 +94,7 @@ export class UserProducts extends Component {
         // console.log(data)
         console.log(Add)
 
-        if(Add.product_image == ""){
+        if(Add.product_image === ""){
             alert.style.display="block"
             alert.innerText="please select an image file!"
         }else{
@@ -112,7 +105,7 @@ export class UserProducts extends Component {
             var AddApi =await AddProductApi( data, token)
             
             if(AddApi){
-                if(AddApi.status == false){
+                if(AddApi.status === false){
                     alert.style.display="block"
                     alert.className="alert alert-warning"
                     alert.innerText= AddApi.message
@@ -137,12 +130,23 @@ export class UserProducts extends Component {
 
     }
     
-     Delete=(id)=>{
-      // id.preventDefault()
-      // const Del = DelProdApi(id, token)
-      // console.log(Del)
-      console.log('delete now')
-      console.log(id)
+     Delete=async(id)=>{
+        const alert = document.getElementById("delete-msg")
+        const btn = document.getElementById("delete-button")
+      const Del =await DelProdApi(id, token)
+
+      if(Del.status === true){
+        alert.style.display="block"
+        alert.className="alert alert-success"
+        alert.innerText=Del.message
+        btn.style.display="none"
+        window.location.reload()
+      }else{
+        alert.style.display="block"
+        alert.className="alert alert-danger"
+        alert.innerText=Del.message
+    }
+    console.log(Del)
 
     }
 
@@ -198,7 +202,7 @@ export class UserProducts extends Component {
                                         
                                         <div className="mx-auto row" style={{fontSize:'20px',}}>
                                             <big className="col-6 d-inline " data-bs-toggle="modal" data-bs-target={`#delete${data.id}`} ><span  className="text-danger prod-link fa fa-trash" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete product"/></big>
-                                            <big className="col-6 d-inline" data-bs-toggle="modal" data-bs-target={`#edit${data.id}`} ><Link className="text-danger prod-link fa fa-edit" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit product"/></big>
+                                            <big className="col-6 d-inline" data-bs-toggle="modal" data-bs-target={`#edit${data.id}`} ><span className="text-danger prod-link fa fa-edit" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit product"/></big>
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +277,9 @@ export class UserProducts extends Component {
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            
+                                            <div>
+                                                <span className="alert" id="delete-msg" style={{display:'none'}}></span>
+                                            </div>
                                         <div class="">
                                     <img class="card-img-top" src={data.image} alt="product pic" style={{width:'70px',height:'90px',margin:'0 auto'}}/>
                                     <div class="card-body">
@@ -290,9 +296,9 @@ export class UserProducts extends Component {
                                 </div>
 
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer" id="delete-button" style={{display:"block"}}>
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="button" class="btn btn-danger" onClick={this.Delete(`del${data.id}`)}>Delete</button>
+                                            <button type="button" class="btn btn-danger" onClick={() => this.Delete(data.id)}>Delete</button>
                                         </div>
                                         </div>
                                     </div>
