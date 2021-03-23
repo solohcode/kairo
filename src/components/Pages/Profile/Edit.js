@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import user from '../../../images/user.png'
 import { ProfileData } from '../../../LocalStorage/Storage'
 import { UpdateProfApi } from '../../../pages/Users/Apis/UserLogic'
-// import { history } from '../../../App'
+import { history } from '../../../App'
 
 
 const login = JSON.parse(localStorage.getItem('login'))
@@ -95,6 +95,9 @@ export class Edit extends Component {
                             alert.style.display="block"
                             alert.className="alert alert-danger"
                             alert.innerText=Edit.message 
+                            setTimeout(function(){
+                                history.push('/login')
+                            },1500)
                         }
                     }else{
                         btn.innerText="Update"

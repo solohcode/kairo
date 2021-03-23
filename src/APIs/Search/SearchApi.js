@@ -17,7 +17,6 @@ export const SearchApi=(param)=>{
  return fetch(baseUrl+Url, requestOptions)
     .then(async res=>{
         const reply = await res.json()
-        console.log(reply)
         return reply
     })
     .catch(err =>{

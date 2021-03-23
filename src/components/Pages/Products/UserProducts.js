@@ -53,7 +53,7 @@ export class UserProducts extends Component {
             }else{
                 alert.style.display="block"
                 alert.className="alert alert-danger"
-                alert.innerText="connection error!"  
+                alert.innerText="connection error! or empty product page"  
             }
         }else{
             alert.style.display="block"
@@ -94,9 +94,9 @@ export class UserProducts extends Component {
         // console.log(data)
         console.log(Add)
 
-        if(Add.product_image === ""){
+        if(Add.product_image == [] || Add.category == []){
             alert.style.display="block"
-            alert.innerText="please select an image file!"
+            alert.innerText="please select an image file! and fill up necessary inputs."
         }else{
             
             alert.style.display="block"
@@ -105,14 +105,20 @@ export class UserProducts extends Component {
             var AddApi =await AddProductApi( data, token)
             
             if(AddApi){
-                if(AddApi.status === false){
-                    alert.style.display="block"
-                    alert.className="alert alert-warning"
-                    alert.innerText= AddApi.message
-                }else{
+                if(AddApi.status === true){
                     alert.style.display="block"
                     alert.className="alert alert-success"
                     alert.innerText= "Upload successful"
+                }else{
+                    if(AddApi.err){
+                        alert.style.display="block"
+                        alert.className="alert alert-warning"
+                        alert.innerText= "please fill necessary inputs"
+                    }else{
+                        alert.style.display="block"
+                        alert.className="alert alert-warning"
+                        alert.innerText= "please fill necessary inputs"
+                    }
                 }
             }else{
                 alert.style.display="block"
@@ -140,7 +146,9 @@ export class UserProducts extends Component {
         alert.className="alert alert-success"
         alert.innerText=Del.message
         btn.style.display="none"
-        window.location.reload()
+        setTimeout(function(){
+            window.location.reload()
+        },1000)
       }else{
         alert.style.display="block"
         alert.className="alert alert-danger"
@@ -185,17 +193,15 @@ export class UserProducts extends Component {
                            
                               
                               <div key={data.id} className="col-md-3">
-                                <div class="card border-none shadow mb-5 rounded">
+                                <div class="card product_card border-none shadow mb-5 rounded">
                                     <img class="card-img-top" src={data.image} alt="product pic" style={{width:'100%',height:'150px',margin:'0 auto'}}/>
                                     <div class="card-body">
                                     <h5 class="card-title">{data.product_name}</h5>
                                     <small class="card-text">{data.description}</small>
                                     <hr/>
-                                        <div className="float-left">
-                                            <b>{data.category}</b> <span>|</span>
-                                        </div>
-                                        <div class="card-text float-right">
-                                            <p >{data.price}</p>
+                                    <div className="card-text">
+                                            <b class="d-inline float-left">{data && data.category}</b> <span>|</span>
+                                            <p class="d-inline float-right">{data && data.price}</p>
                                         </div>
                                     </div>
                                     <div class=" card-footer text-center" id="Product-footer">
@@ -252,10 +258,6 @@ export class UserProducts extends Component {
                                                 
                                             }
                                         </select>
-                                        </div>
-                                        <div className="form-group">
-                                            <label for="price">Other category if not available above</label>
-                                                <input type="text" name="category" onChange={this.handleChange} class="form-control"   required />
                                         </div>
                                         </form>
 
@@ -365,10 +367,6 @@ export class UserProducts extends Component {
                                             ))
                                             }
                                         </select>
-                                        </div>
-                                        <div className="form-group" id="other">
-                                            <label for="price">Other category if not available above</label>
-                                                <input type="text" name="category" onChange={this.handleChange} class="form-control" value={this.state.Add.category}   required />
                                         </div>
                 
                                         </form>

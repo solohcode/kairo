@@ -4,6 +4,8 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 // style 
 import './styles/style.css'
+import './styles/bannerStyle.css'
+
 
 // // components imports
 import HeaderNav from './components/Header/HeaderNav'

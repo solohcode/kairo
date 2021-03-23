@@ -30,39 +30,49 @@ class Demo extends Component{
         const alert = document.getElementById("message")
         const btn = document.getElementById("button")
         const search = document.getElementById("search-display")
+        const result = document.getElementById('search-head')
 
 
 
 
-        if(param.search_term == ""){
+        if(param.search_term === ""){
             alert.className="text-danger"
             alert.innerText="please input product name to search"
         }else{
             search.style.display="block"
             alert.innerText="Please wait your search is on it's way."
             btn.innerText="requesting..."
-            const get = await SearchApi(param)
-            // console.log(get.message)
+            var get = await SearchApi(param)
+            console.log(get.err)
+
+            const errs = [{product_name:"connection problem please connect to internet"}]
             
-                    if(get.err){
+            
+                    if(!get || get.err){
                         alert.innerText="connection error please connect to a network"
                         alert.className="alert-danger text-center"
+                        this.setState({get:errs})
                         // alert.innerText="no internet connection!"
-                    }else if(get.status == false){
-                        btn.innerText="Search"
-                        alert.style.display="block"
-                        alert.className="text-danger text-center"
-                        alert.innerText="product not available"
-                        document.getElementById('search-head').style.display="none"
+                    
                     }else{
 
-                         this.setState({get:get})
+                        
+                        if(get.status === false){
+                            // this.setState({get: errs})
+                            btn.innerText="Search"
+                            alert.style.display="block"
+                            alert.className="text-danger text-center"
+                            alert.innerText="product not available"
+                            result.style.display="none"
+                        }else{
+                            this.setState({get:get})
+                            btn.innerText="Search"
+                            alert.style.display="block"
+                            alert.innerText="check search result below"
+                            result.style.display="block"
 
-                        btn.innerText="Search"
-                        alert.style.display="block"
-                        // alert.className="text-success"
-                        alert.innerText="check search result below"
-                        document.getElementById('search-head').style.display="block"
+                        }
+
                     }
                
         }
@@ -115,36 +125,36 @@ render(){
                         </div>
                         <div className="text-center my-5 cards row text-danger">
                             <div className="col-md-3 "></div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                     <span className="icon fas fa-lemon"/>
                                     <p>Foods</p>
                                 </div>
                             </div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                         <span className="icon fas fa-tshirt "/>
                                         <p>Wears</p>
                                 </div>
                             </div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                         <span className=" icon fas fa-laptop "/>
                                         <p>Gadgets</p>
                                 </div>                            </div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-blender "/>
                                     <p>Household</p>
                                 </div>
                             </div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-pills "/>
                                     <p>Health</p>
                                 </div>
                             </div>
-                            <div className="col-md-1 col-sm-1  card sub-card">
+                            <div className="col-md-1 col-sm-1 sub-card">
                                 <div className="py-3">
                                     <span className=" icon fas fa-gem "/>
                                     <p>Fashion</p>
@@ -180,30 +190,27 @@ render(){
                     <div className="row">
 
                     { 
-
-                         get=== [] ? <h6 class=" text-center"><span class="spinner-border"/> please wait..</h6> :
+                       
                         get.map(prod =>(
                            
                               
                         <div key={prod.id} className="col-md-3">
-                            <div class="card products-card border-none shadow mb-5 rounded">
+                            <div class="card little_product_card products-card border-none shadow mb-5 rounded" data-toggle="modal" data-target={`#modal${prod.id}`}>
                                 <img class="card-img-top" src={prod && prod.image} alt="product pic" style={{width:'100px',height:'90px',margin:'0 auto'}}/>
                                 <div class="card-body">
                                 <h5 class="card-title">{prod && prod.product_name}</h5>
                                 <p class="card-text float-left">{prod && prod.description}</p>
                                <br/><br/>
-                                <div className="float-left">
-                                        <b>{prod && prod.category}</b> <span>|</span>
-                                    </div>
-                                    <div class="card-text float-right">
-                                        <p >{prod && prod.price}</p>
+                                    <div className="card-text">
+                                            <b class="d-inline float-left">{prod && prod.category}</b> <span>|</span>
+                                            <p class="d-inline float-right">{prod && prod.price}</p>
                                     </div>
                                 </div>
-                                <div className="text-center card-footer">
+                                {/* <div className="text-center card-footer">
                                    <div className="mx-auto">
                                        <span className="btn btn-outline-danger prod-link" type="button" data-toggle="modal" data-target={`#modal${prod.id}`}>view</span>
                                     </div>
-                                </div>
+                                </div> */}
 
 
                                 <div  class="modal fade" id={`modal${prod.id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
