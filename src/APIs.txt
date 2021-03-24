@@ -1,20 +1,6 @@
 CAIRO MARKET
 ======================
 
-1)  REGISTER
-    http://142.93.152.229/cairo/api/auth/register
-    post request
-
-    params
-    --------------
-    first_name, last_name, phone_no, email, password, password_confirmation
-
-
-
-
-3)  VERIFY EMAIL
-    http://142.93.152.229/cairo/api/auth/verify_email/585239882684
-    post request
 
 
 
@@ -48,14 +34,6 @@ CAIRO MARKET
 
 
 
-    NEW UPDATE ADD PRODUCTS INTO DATABASE (new parameter added => category)
-    =======================================================================
-    http://142.93.152.229/cairo/api/add_products?token=
-
-    POST REQUEST
-    Parameters {
-        product_image, product_name, description, price, category
-    }
 
 
 
@@ -70,6 +48,30 @@ CAIRO MARKET
 
    
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONSUMED APIs >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    NEW UPDATE ADD PRODUCTS INTO DATABASE (new parameter added => category)
+    =======================================================================
+    http://142.93.152.229/cairo/api/add_products?token=
+
+    POST REQUEST
+    Parameters {
+        product_image, product_name, description, price, category
+    }
+    
+1)  REGISTER
+    http://142.93.152.229/cairo/api/auth/register
+    post request
+
+    params
+    --------------
+    first_name, last_name, phone_no, email, password, password_confirmation
+
+
+
+
+3)  VERIFY EMAIL
+    http://142.93.152.229/cairo/api/auth/verify_email/585239882684
+    post request
+
     UPDATE PROFILE
     http://142.93.152.229/cairo/api/update_profile?token=
     POST REQUEST

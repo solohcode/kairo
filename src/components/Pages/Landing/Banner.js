@@ -33,7 +33,8 @@ export class Banner extends Component {
                             <h1 className="">Thursday Iya Oloja sales off</h1>
                             <h5>get 30% off every product you purchase at the kairo market corperate malls.</h5>
                             <br/>
-                            <h1 className=" text-danger"><span className="fas fa-shopping-cart"/></h1>
+                            <h1 className=" text-danger"><span className="fas fa-shopping-cart"/>  <span className="fas fa-shopping-bag"/>  <span className="fas fa-shopping-basket"/></h1>
+                            <p>shop economical.</p>
                         </div>
                         </div>
                         <div class="carousel-item carousel_item2" id="carousel_item2">
@@ -42,7 +43,8 @@ export class Banner extends Component {
                             <h1>Ilashe Osan day</h1>
                             <h5>fruits and veggie seasonal sales and promo discounts.</h5>
                             <br/>
-                            <h1 className=" text-danger"><span className="fas fa-shopping-cart"/></h1>
+                            <h1 className=" text-danger"><span className="fas fa-apple-alt"/>  <span className="fas fa-carrot"/>  <span className="fas fa-lemon"/></h1>
+                            <p>vitamins and mineral sales.</p>
                         </div>
                         </div>
                         <div class="carousel-item text-center text-white" id="carousel_item3">
@@ -52,7 +54,9 @@ export class Banner extends Component {
                             <h1>Olobe Lo Lokor </h1>
                             <h5>food and nutrition general sales and promo discounts at main market.</h5>
                             <br/>
-                            <h1 className=" text-danger"><span className="fas fa-shopping-cart"/></h1>
+                            <h1 className=" text-danger"><span className="fas fa-pepper-hot"/>  <span className="fas fa-seedling"/>  <span className="fas fa-leaf"/></h1>
+                            <p>spice and legumes.</p>
+
                         </div>
                         </div>
                     </div>

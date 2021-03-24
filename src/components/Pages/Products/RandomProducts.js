@@ -113,7 +113,7 @@ class Products extends Component{
 
                 <div className="products ">
                     <div className="text-center">
-                        <h3>Top Selling<span className="text-danger fas fa-tags"/></h3>
+                        <h3>Top Selling <span className="text-danger fas fa-tags"/></h3>
                     </div>
                     <hr/>
                     <div className="">

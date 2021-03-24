@@ -44,7 +44,7 @@ export class UserProfile extends Component {
                             <div className="row ">
                                 <div className="col-md-6 border-right border-left about-you">
                                     <h4>About you</h4>
-                                    <hr/>
+                                    {/* <hr/> */}
                                     <p className="pr-5">{ProfileData.user}.</p>
                                     <div className="text-start">
                                         <a href={`mailto:${ProfileData.mail}`} target="_blank" rel="noopener noreferrer" className="btn-link text-dark d-block" ><span className="fa fa-envelope"/> : {ProfileData.mail}</a>
@@ -53,9 +53,9 @@ export class UserProfile extends Component {
                                 </div>
                                 <div className="col-md-6 border-left border-right about-business">
                                     <h4>About your Business</h4>
-                                    <hr/>
+                                    {/* <hr/> */}
                                     <h6>Business Name: <span>{ProfileData.b_name}</span></h6>
-                                    <hr/>
+                                    {/* <hr/> */}
                                     <p>{ProfileData.business}.</p>
                                    
                                 </div>
