@@ -69,11 +69,11 @@
     margin: 0px;
 } */
 /* heading desktop stylings  */
-.headerNav{
+/* .headerNav{
     width: 100%;
     color: #a9a9a9;
     background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9));
-}
+} */
 .headerNav input{
     border-left: none;
     border-right: none;
@@ -91,10 +91,10 @@
 
 
 
-.logoMobile img{
+/* .logoMobile img{
     width: 100px;
     height: 25px;
-}
+} */
 .headerNav .navbar .link{
     color: #b6b6b6;
     /* font-weight: bold; */

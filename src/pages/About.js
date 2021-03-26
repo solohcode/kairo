@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import m from "../images/bannerImages/b6.jpeg"
 
 function About() {
@@ -9,6 +10,7 @@ function About() {
                <div className="top text-center text-gray">
                    <h3>About Kairo Market</h3>
                    <hr/>
+                   <Link to="/reset-password/">reset password</Link>
                </div>
              
                

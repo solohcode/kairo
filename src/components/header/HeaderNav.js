@@ -7,7 +7,7 @@ import logo from '../../images/logo3.jpg'
 const Header=()=> {
     
     return (
-        <div className="headerNav mb-5 " style={{marginBottom:'30px'}}>
+        <div className="headerNav  " style={{marginBottom:'30px'}}>
             <div className="">
                
             {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">

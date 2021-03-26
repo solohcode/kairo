@@ -16,6 +16,7 @@ import Landing from './pages/Landing'
 import About from './pages/About'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
+import Reset from './pages/Auth/Reset'
 import Dashboard from './pages/Users/Dashboard'
 import Profile from './pages/Users/Profile'
 import EditProfile from './pages/Users/EditProfile'
@@ -24,7 +25,6 @@ import CreateBusiness from './pages/Users/CreateBusiness'
 import Forgot from './pages/Auth/Forgot'
 import Verify from './pages/Auth/Verify'
 import Contact from './pages/Contact'
-// import { id } from './pages/Auth/APIs/AuthLogic'
 
 
 export const history = createBrowserHistory()
@@ -33,10 +33,10 @@ export const history = createBrowserHistory()
  const App = ()=>{
 return (
         <div className="">
-             {/* <HeaderNav/> */}
 
             <Router history={history}>
             <HeaderNav/>
+            <br/>
 
                 <Switch>
                     <Route exact path="/" component={Landing}/>
@@ -51,12 +51,13 @@ return (
                     <Route path={`/verify_email/:id`} component={Verify}/>
                     <Route path="/contact" component={Contact}/>
                     <Route path="/createBusiness" component={CreateBusiness}/>
+                    <Route path={`reset-password:token`} component={Reset} />
                 </Switch>
+
             <Footer/>
             </Router>
 
             
-            {/* <FooterMobile/> */}
         </div>
     )
 }

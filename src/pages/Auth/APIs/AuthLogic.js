@@ -2,13 +2,13 @@
 import { ProfileApi } from '../../Users/Apis/UserLogic'
 
 
-const baseUrl = "http://142.93.152.229/cairo/api/"
+const baseUrl = "http://142.93.152.229/cairo/api/auth/"
 
 
 
 // API for login starts here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function LoginApi(data){
-    const loginUrl ="auth/login";
+    const loginUrl ="login";
 
       
     const requestOptions={
@@ -73,7 +73,7 @@ function LoginApi(data){
 // API for register starts here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function RegisterApi(data){
 
-  const url = "auth/register"
+  const url = "register"
 
  const add = {
    method: "POST",
@@ -95,7 +95,7 @@ return fetch(baseUrl+url, add).then( async res=>{
 // verify email api stats here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function VerifyApi(id){
 
-  const url = `auth/verify_email/${id}`
+  const url = `verify_email/${id}`
   const attach ={
     method:'GET',
     headers:{
@@ -113,5 +113,24 @@ function VerifyApi(id){
 }
 
 
+function forgotPasswordApi(mail){
+  const url = 'forgot_password'
+  const attach = {
+    method:'POST',
+    body: JSON.stringify(mail),
+    headers:{
+      'content-type':'application/json'
+    }
+  }
 
-export { LoginApi, RegisterApi, VerifyApi }
+  return fetch(baseUrl+url, attach).then(async res=>{
+    const reply = await res.json()
+    return reply
+  }).catch(err =>{
+    return err
+  })
+}
+
+
+
+export { LoginApi, RegisterApi, VerifyApi, forgotPasswordApi }

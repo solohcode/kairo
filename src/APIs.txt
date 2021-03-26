@@ -4,16 +4,6 @@ CAIRO MARKET
 
 
 
-4)  FORGOT PASSWORD
-    http://142.93.152.229/caito/api/auth/forgot_password
-    post request
-
-    params
-    ----------------
-    email
-
-
-
 5)  RESET PASSWORD
     http://142.93.152.229/cairo/api/auth/reset_password
     post request
@@ -48,6 +38,16 @@ CAIRO MARKET
 
    
     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONSUMED APIs >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+4)  FORGOT PASSWORD
+    http://142.93.152.229/caito/api/auth/forgot_password
+    post request
+
+    params
+    ----------------
+    email
     NEW UPDATE ADD PRODUCTS INTO DATABASE (new parameter added => category)
     =======================================================================
     http://142.93.152.229/cairo/api/add_products?token=

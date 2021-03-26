@@ -89,7 +89,7 @@ render(){
         <div className="landing">
             <br/>
             <br/>
-            <div className="container-fluid my-5">
+            <div className="container-fluid ">
                 <div className="text-center">
                     <div className="kairo-text">
                         <h3 className="text-danger"><span className="fas fa-map-marker"/>Kairo Local Online Market Platform.</h3>

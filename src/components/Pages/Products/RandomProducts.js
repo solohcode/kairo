@@ -8,15 +8,19 @@ class Products extends Component{
     constructor(props){
         super(props)
         this.state = {
-            get:[]
+            get:[],
+            give:[]
         }
     }
     async componentDidMount(){
         const get = await RandomProduct()
-        this.setState({get:get})
+        const give = await RandomProduct()
+
+        this.setState({get:get, give:give})
     }
     render(){
         const {get} = this.state
+        const {give} = this.state
         return (
 
         <div>
@@ -121,8 +125,8 @@ class Products extends Component{
                         
                     { 
                     
-                      get==null? <h6 class="alert alert-danger text-center">to view this page please connect to a network...</h6> :
-                        get.map( prod =>(
+                      give==null? <h6 class="alert alert-danger text-center">to view this page please connect to a network...</h6> :
+                        give.map( prod =>(
                            
                             //   <div>
                               <div key={prod.id} className="col-sm-2 col-md-2">
