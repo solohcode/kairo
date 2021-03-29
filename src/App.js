@@ -36,7 +36,6 @@ return (
 
             <Router history={history}>
             <HeaderNav/>
-            <br/>
 
                 <Switch>
                     <Route exact path="/" component={Landing}/>
