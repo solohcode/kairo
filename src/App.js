@@ -50,7 +50,7 @@ return (
                     <Route path={`/verify_email/:id`} component={Verify}/>
                     <Route path="/contact" component={Contact}/>
                     <Route path="/createBusiness" component={CreateBusiness}/>
-                    <Route path={`reset-password:token`} component={Reset} />
+                    <Route path={`/verify-password/:token`} component={Reset} />
                 </Switch>
 
             <Footer/>

@@ -86,12 +86,12 @@ render(){
 
     return (
         <div>
-        <div className="landing">
+        <div className="landing mt-5">
             <br/>
             <br/>
             <div className="container-fluid ">
                 <div className="text-center">
-                    <div className="kairo-text">
+                    <div className="kairo-text mt-5">
                         <h3 className="text-danger"><span className="fas fa-map-marker"/>Kairo Local Online Market Platform.</h3>
                         <h5 className="px-5">an online market platform for a local market at oshodi isolo local government lagos state.</h5>
                     </div>

@@ -132,5 +132,24 @@ function forgotPasswordApi(mail){
 }
 
 
+function ResetPasswordApi(data){
+  const url = 'reset_password'
 
-export { LoginApi, RegisterApi, VerifyApi, forgotPasswordApi }
+  const attach = {
+    method:'POST',
+    body: JSON.stringify(data),
+    headers:{
+        'content-type':'apllication/json'}
+  }
+
+  return fetch(baseUrl+url,attach).then(async res=>{
+    const resp = await res.json()
+    return resp
+  }).catch(err=>{
+    return err
+  })
+}
+
+
+
+export { LoginApi, RegisterApi, VerifyApi, forgotPasswordApi, ResetPasswordApi }
