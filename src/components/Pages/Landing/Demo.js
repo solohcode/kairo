@@ -119,7 +119,7 @@ render(){
                         <p class=" mess" id="message">Sell at ease buy at less any product of different categories.</p>
                         </div>
 
-                    <div className="category  mb-5">
+                    <div className="d-none d-md-block category  mb-5">
                         <div>
                         <h5>Top Selling Categories</h5>
                         </div>

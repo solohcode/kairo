@@ -39,8 +39,11 @@ function Forgot() {
                 btn.innerText="Submit"
                 msg.style.display="block"
                 msg.className="text-center alert alert-danger"
-                msg.innerText="connection obstructed!"
+                msg.innerText=fog.message 
             }
+            // msg.style.display="block"
+            // msg.className="text-center alert alert-danger"
+            // msg.innerText="connection obstructed!"
 
         }
     }

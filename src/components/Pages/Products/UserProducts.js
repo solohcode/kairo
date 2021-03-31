@@ -37,28 +37,40 @@ export class UserProducts extends Component {
         const prod = await User(token)
         const get = await CategoryApi(token)
 
-        const alert = document.getElementById("prod-msg")
-        const load = document.getElementById("prod-load")
+        // const alert = document.getElementById("prodMsg")
+        // const load = document.getElementById("prodLoad")
+        const userPs = JSON.parse(localStorage.getItem('userProducts'))
 
         this.setState({
             get:get ,
         })
         if(prod){
             // load.style.display="block"
+            if(prod.status==false){
+                alert(prod.message)
+            }
             if(prod.data){
-                load.style.display="none"
+                // load.style.display="none"
+                localStorage.setItem('userProducts',JSON.stringify(prod.data))
                 this.setState({
                     data:prod.data
                 })
             }else{
-                alert.style.display="block"
-                alert.className="alert alert-danger"
-                alert.innerText="connection error! or empty product page"  
+                alert('empty product page add products to the platform!')
+                // alert.style.display="block"
+                // alert.className="alert alert-danger"
+                // alert.innerText="connection error! or empty product page"  
             }
         }else{
-            alert.style.display="block"
-            alert.className="alert alert-danger"
-            alert.innerText="connection error!"
+            if(userPs!=""){
+                this.setState({
+                    data: userPs
+                })
+            }
+            console.log('connection error!')
+            // alert.style.display="block"
+            // alert.className="alert alert-danger"
+            // alert.innerText="connection error!"
         }
         
         
@@ -91,8 +103,7 @@ export class UserProducts extends Component {
         data.append('category[0]',Add.category)
         console.log(data)
 
-        // console.log(data)
-        console.log(Add)
+        
 
         if(Add.product_image == [] || Add.category == []){
             alert.style.display="block"
@@ -109,6 +120,9 @@ export class UserProducts extends Component {
                     alert.style.display="block"
                     alert.className="alert alert-success"
                     alert.innerText= "Upload successful"
+                    setTimeout(function(){
+                        window.location.reload()
+                    },1000)
                 }else{
                     if(AddApi.err){
                         alert.style.display="block"
@@ -180,15 +194,15 @@ export class UserProducts extends Component {
                     </div>
                     <hr/>
                     <div className="">
+                        {/* <div className="col-12">
+                            <span className="spinner-border" id="prodLoad" style={{display:"none"}}/>
+                            <span className="alert alert-warning" id="prodMsg" style={{display:"none"}}></span>
+                        </div> */}
                         
                     <div className="row">
-                        <div className="col-12">
-                            <span class="spinner-border" id="prod-load" style={{display:"none"}}/>
-                            <span className="alert alert-warning" id="prod-msg" style={{display:"none"}}></span>
-                        </div>
                     { 
                         
-                   data== null? <span className="spinner-border">please wait...</span>:
+                   data== null? <span className="col-md-12 text-center alert alert-warning">Empty! product page empty upload products to view your products</span>:
                         data.map( data =>(
                            
                               
@@ -196,7 +210,7 @@ export class UserProducts extends Component {
                                 <div class="card product_card border-none shadow mb-5 rounded">
                                     <img class="card-img-top" src={data.image} alt="product pic" style={{width:'100%',height:'150px',margin:'0 auto'}}/>
                                     <div class="card-body">
-                                    <h5 class="card-title">{data.product_name}</h5>
+                                    <h6 class="">{data.product_name}</h6>
                                     <small class="card-text">{data.description}</small>
                                     <hr/>
                                     <div className="card-text">
@@ -353,7 +367,7 @@ export class UserProducts extends Component {
                                         </div>
                                         <div className="form-group">
                                             <label for="price">Price</label>
-                                                <input type="number" name="price" onChange={this.handleChange} class="form-control" value={this.state.Add.price}  required />
+                                                <input type="text" name="price" onChange={this.handleChange} class="form-control" value={this.state.Add.price}  required />
                                         </div>
                                         <div className="form-group">
                                         <label for="category">Category</label>

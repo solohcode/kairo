@@ -29,11 +29,11 @@ class Verify extends Component {
             btn.innerText="Verify email"
             alert.style.display="block"
             alert.className=suc
-            alert.innerText=ver.message
+            alert.innerText=ver.message+" you can now login to your account"
 
             setTimeout(function(){
                 history.push('/login')
-            },2000)
+            },5000)
         }else{
             loader.style.display="none"
             btn.innerText="Verify email"

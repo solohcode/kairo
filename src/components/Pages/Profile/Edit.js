@@ -90,14 +90,19 @@ export class Edit extends Component {
                         alert.style.display="block"
                         alert.className="alert alert-success"
                         alert.innerText=Edit.message+" re-login to view update"
+                            setTimeout(function(){
+                                history.push('/login')
+                            },2000)
+                        }else if(Edit.status_code == "401"){
+                            setTimeout(function(){
+                                history.push('/login')
+                            },1500)
+
                         }else{
                             btn.innerText="Update"
                             alert.style.display="block"
                             alert.className="alert alert-danger"
-                            alert.innerText=Edit.message 
-                            setTimeout(function(){
-                                history.push('/login')
-                            },1500)
+                            alert.innerText=Edit.message +" fill empty inputs if necessary"
                         }
                     }else{
                         btn.innerText="Update"
@@ -122,7 +127,7 @@ export class Edit extends Component {
                         
                     <div className="row ">
                         <div className="col-6 text-center">
-                            <img src={ProfileData.dp} alt="user" width="60px" height="60px" className="float-left border border-secondary rounded-circle"/>
+                            <img src={ ProfileData && ProfileData.dp} alt="user" width="60px" height="60px" className="float-left border border-secondary rounded-circle"/>
                         </div>
                         <div className="col-6 mt-2">
                             <div class="input-group mb-3 mx-auto">
@@ -145,7 +150,7 @@ export class Edit extends Component {
                                         <label className="form-label">First Name</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-user"/>
-                                        <input type="text" name="first_name" onChange={this.handleChange} className="form-control" placeholder="first name" required/>
+                                        <input type="text" name="first_name" onChange={this.handleChange} className="form-control" placeholder={ ProfileData.first ===""? "first name": ProfileData && ProfileData.first} required/>
                                         </div>
                                     </div>
 
@@ -153,7 +158,7 @@ export class Edit extends Component {
                                         <label className="form-label">Last Name</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-user"/>
-                                        <input type="text" name="last_name" onChange={this.handleChange} className="form-control" placeholder="last name" required/>
+                                        <input type="text" name="last_name" onChange={this.handleChange} className="form-control" placeholder={ ProfileData.last ===""? "last name": ProfileData && ProfileData.last} required/>
                                         </div>
                                     </div>
                         </div>
@@ -164,7 +169,7 @@ export class Edit extends Component {
                                         <label className="form-label">E-mail</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-envelope"/>
-                                        <input type="email" name="email" onChange={this.handleChange} className="form-control" placeholder="email" required/>
+                                        <input type="email" name="email" onChange={this.handleChange} className="form-control" placeholder={ ProfileData.email === ""? "email": ProfileData && ProfileData.mail} required/>
                                         </div>
                                     </div>
 
@@ -172,7 +177,7 @@ export class Edit extends Component {
                                         <label className="form-label">Mobile Number</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-phone"/>
-                                        <input type="number" name="phone_no" onChange={this.handleChange} className="form-control" placeholder="mobile number" required/>
+                                        <input type="number" name="phone_no" onChange={this.handleChange} className="form-control" placeholder={ ProfileData.phone ===""? "mobile number": ProfileData && ProfileData.phone} required/>
                                         </div>
                                     </div>
                         </div>
@@ -182,7 +187,7 @@ export class Edit extends Component {
                                         <label className="form-label">Social Handle</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-whatsapp"/>
-                                        <input type="text" name="social_handle" onChange={this.handleChange} className="form-control" placeholder="whatsapp social handle/number" required/>
+                                        <input type="text" name="social_handle" onChange={this.handleChange} className="form-control" placeholder={ ProfileData.handle ===""? "whatsapp handle": ProfileData && ProfileData.handle} required/>
                                         </div>
                                     </div>
 
@@ -190,7 +195,7 @@ export class Edit extends Component {
                                         <label className="form-label">About you</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-info"/>
-                                        <textarea height="10px" name="about_user" onChange={this.handleChange} type="text" className="form-control" placeholder="about you in short note" required/>
+                                        <textarea height="10px" name="about_user" onChange={this.handleChange} type="text" className="form-control" placeholder={ProfileData.user===""? "about you in short note": ProfileData && ProfileData.user} required/>
                                         </div>
                                     </div>
                         </div>
@@ -208,7 +213,7 @@ export class Edit extends Component {
                                         <label className="form-label">Business Name</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-certificate"/>
-                                        <input type="text" name="business_name" onChange={this.handleChange} className="form-control" placeholder="business name" required/>
+                                        <input type="text" name="business_name" onChange={this.handleChange} className="form-control" placeholder={ProfileData.b_name===""? "business name": ProfileData && ProfileData.b_name} required/>
                                         </div>
                                     </div>
 
@@ -216,7 +221,7 @@ export class Edit extends Component {
                                         <label className="form-label">Services</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-gears"/>
-                                        <input type="text" name="services" onChange={this.handleChange} className="form-control" placeholder="services" required/>
+                                        <input type="text" name="services" onChange={this.handleChange} className="form-control" placeholder={ProfileData.service===""? "services":ProfileData && ProfileData.service} required/>
                                         </div>
                                     </div>
                         </div>
@@ -227,7 +232,7 @@ export class Edit extends Component {
                                         <label className="form-label">Products</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-tags"/>
-                                        <input type="text" name="products" onChange={this.handleChange} className="form-control" placeholder="products" required/>
+                                        <input type="text" name="products" onChange={this.handleChange} className="form-control" placeholder={ProfileData.product===""? "products": ProfileData && ProfileData.product} required/>
                                         </div>
                                     </div>
 
@@ -235,7 +240,7 @@ export class Edit extends Component {
                                         <label className="form-label">Website Url</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-link"/>
-                                        <input type="text" name="business_website" onChange={this.handleChange} className="form-control" placeholder="website link" required/>
+                                        <input type="text" name="business_website" onChange={this.handleChange} className="form-control" placeholder={ProfileData.web ===""? "website link if available":ProfileData && ProfileData.web} required/>
                                         </div>
                                     </div>
                         </div>
@@ -245,7 +250,7 @@ export class Edit extends Component {
                                         <label className="form-label">Address</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-map-marker"/>
-                                        <input type="text" name="address" onChange={this.handleChange} className="form-control" placeholder="address location" required/>
+                                        <input type="text" name="address" onChange={this.handleChange} className="form-control" placeholder={ProfileData.address===""? "address location":ProfileData && ProfileData.address} required/>
                                         </div>
                                     </div>
 
@@ -253,7 +258,7 @@ export class Edit extends Component {
                                         <label className="form-label">About Business</label>
                                         <div className="input-group">
                                         <span className="input-group-text fa fa-info"/>
-                                        <textarea type="text" name="about_business" onChange={this.handleChange} className="form-control" placeholder="about your business in short note" required/>
+                                        <textarea type="text" name="about_business" onChange={this.handleChange} className="form-control" placeholder={ProfileData.business===""?"about your business in short note":ProfileData && ProfileData.business} required/>
                                         </div>
                                     </div>
                         </div>

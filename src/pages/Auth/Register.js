@@ -57,7 +57,7 @@ function Register() {
                         alert.innerText= reg.message
                         setTimeout(function(){
                             history.push('/login')
-                        }, 2000)
+                        }, 5000)
                         
                     }else{
                         btn.innerText="Register"

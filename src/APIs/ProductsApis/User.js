@@ -21,7 +21,7 @@ const User = (token)=>{
         console.log(Prods)
         return Prods
     }).catch(err =>{
-        alert('connection problem')
+        alert('connection error!')
     })
 }
 

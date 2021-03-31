@@ -12,7 +12,7 @@ export class UserProfile extends Component {
                     <div className="container-fluid">
                         <div className="UserProfile-top ">
                             <div className="text-center">
-                                <h3 class="d-inline"><span className="text-danger fa fa-user"/> User Profile</h3>
+                                <h3 class="d-inline"><span className="text-danger fa fa-user"/> Your Profile</h3>
                         <Link to="/products" className="d-sm-block d-md-none d-inline mt-4 float-right btn btn-danger fa fa-shopping-cart"> Product Page</Link>
                                 <hr/>
                             </div>
@@ -23,12 +23,13 @@ export class UserProfile extends Component {
                             <ul className="col-md-6">
                             <li className="d-inline ">
                                 <img src={ProfileData.dp} alt="user" width="100px" height="100px" className="rounded-circle border"/>
+                                <span className="" style={{display:ProfileData.dp===""?'block':'none'}}>plsease update your profile</span>
                             </li>
                             <li className="d-inline float-right ">
                                 <div className="float-left mt-2 ">
                                 <h4 className="d-block">{ProfileData.name}</h4>
                                 <a href={`mailto:${ ProfileData.mail}`} target="_blank" rel="noopener noreferrer" className="text-dark d-block btn-link">{ProfileData.mail}</a>
-                                <a href={`mailto:${ ProfileData.phone}`} target="_blank" rel="noopener noreferrer" className="text-dark d-block btn-link">{ProfileData.phone}</a>
+                                <a href={`tel:${ ProfileData.phone}`} target="_blank" rel="noopener noreferrer" className="text-dark d-block btn-link">{ProfileData.phone}</a>
                                 </div>
                             </li>
                             </ul>
@@ -56,7 +57,7 @@ export class UserProfile extends Component {
                                     {/* <hr/> */}
                                     <h6>Business Name: <span>{ProfileData.b_name}</span></h6>
                                     {/* <hr/> */}
-                                    <p>{ProfileData.business}.</p>
+                                    <p className="mt-4">{ProfileData.business}.</p>
                                    
                                 </div>
                             </div>
