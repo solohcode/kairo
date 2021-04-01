@@ -59,12 +59,18 @@ function Register() {
                             history.push('/login')
                         }, 5000)
                         
-                    }else{
+                    }else if(reg.email){
                         btn.innerText="Register"
                         loader.style.display="none"
                         alert.style.display="block"
                         alert.className=dan
                         alert.innerText= reg.email
+                    }else{
+                        btn.innerText="Register"
+                        loader.style.display="none"
+                        alert.style.display="block"
+                        alert.className=dan
+                        alert.innerText= "connection error!"
                     }
                 }else{
                     btn.innerText="Register"
