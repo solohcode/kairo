@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
+// import { Link } from 'react-router-dom'
 import { SearchApi } from '../../../APIs/Search/SearchApi'
 // import { CategoryApi } from '../../../APIs/ProductsApis/User'
 
@@ -20,7 +20,7 @@ class Demo extends Component{
 
 
     handleChange=(e)=>{
-        const {name, value} = e.target
+        const {value} = e.target
        this.setState({search_term:value})
     }
     

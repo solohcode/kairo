@@ -46,7 +46,7 @@ export class UserProducts extends Component {
         })
         if(prod){
             // load.style.display="block"
-            if(prod.status==false){
+            if(prod.status===false){
                 alert(prod.message)
             }
             if(prod.data){
@@ -62,7 +62,7 @@ export class UserProducts extends Component {
                 // alert.innerText="connection error! or empty product page"  
             }
         }else{
-            if(userPs!=""){
+            if(userPs!==""){
                 this.setState({
                     data: userPs
                 })
@@ -105,7 +105,7 @@ export class UserProducts extends Component {
 
         
 
-        if(Add.product_image == [] || Add.category == []){
+        if(Add.product_image === [] || Add.category === []){
             alert.style.display="block"
             alert.innerText="please select an image file! and fill up necessary inputs."
         }else{

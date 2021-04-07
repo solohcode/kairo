@@ -19,7 +19,7 @@ function Forgot() {
         const btn = document.getElementById('btn')
 
 
-        if(data.email == ""){
+        if(data.email === ""){
             msg.style.display="block"
             msg.innerText="Input box cannot be empty please input email!"
         }else{
@@ -28,7 +28,7 @@ function Forgot() {
             btn.innerText="Submitting.."
             const fog = await forgotPasswordApi(data)
             
-            if(fog.status == 'true'){
+            if(fog.status === 'true'){
                 load.style.display="none"
                 btn.innerText="Submit"
                 msg.style.display="block"

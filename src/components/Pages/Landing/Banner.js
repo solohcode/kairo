@@ -3,16 +3,13 @@ import '../../../styles/bannerStyle.css'
 import m1  from '../../../images/bannerImages/b2.png'
 import m2 from '../../../images/bannerImages/b3.jpeg'
 import m3  from '../../../images/bannerImages/b5.jpeg'
-import m4 from '../../../images/bannerImages/b4.jpeg'
+// import m4 from '../../../images/bannerImages/b4.jpeg'
 
 
 
 export class Banner extends Component {
     render() {
-        const style={
-            width:'100%',
-            height:'100px'
-        }
+       
         return (
             <div className="banners">
                 

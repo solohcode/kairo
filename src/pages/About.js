@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import m from "../images/bannerImages/b6.jpeg"
+// import { Link } from 'react-router-dom'
+// import m from "../images/bannerImages/b6.jpeg"
 
 function About() {
     return (

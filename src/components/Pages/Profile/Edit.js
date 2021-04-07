@@ -93,7 +93,7 @@ export class Edit extends Component {
                             setTimeout(function(){
                                 history.push('/login')
                             },2000)
-                        }else if(Edit.status_code == "401"){
+                        }else if(Edit.status_code === "401"){
                             setTimeout(function(){
                                 history.push('/login')
                             },1500)
