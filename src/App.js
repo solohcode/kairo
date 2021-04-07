@@ -8,7 +8,8 @@ import './styles/bannerStyle.css'
 
 
 // // components imports
-import HeaderNav from './components/Header/HeaderNav'
+import HeaderNav from './components/header/HeaderNav'
+// import HeaderNav from './components/Header/HeaderNav'
 import Footer from './components/Footer/Footer'
 
 // pages imports
