@@ -35,7 +35,7 @@ return (
         <div className="">
 
             <Router history={history}>
-            <HeaderNav/>
+                <HeaderNav/>
 
                 <Switch>
                     <Route exact path="/" component={Landing}/>
