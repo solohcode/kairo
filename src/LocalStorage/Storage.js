@@ -1,5 +1,7 @@
 
-import usa from '../images/usa.png'
+import usa from '../images/usa.jpg'
+import use from '../images/usa.png'
+
 
 
 
@@ -17,7 +19,7 @@ const Profile = JSON.parse(localStorage.getItem('profile'))
         
             // personal profiles 
             name: Profile && Profile.first_name+" "+Profile.last_name,
-            dp: Profile && Profile.profile_pics?Profile && Profile.profile_pics:usa,
+            dp: Profile && Profile.profile_pics?Profile && Profile.profile_pics:usa||use,
             user: Profile && Profile.about_user,
             phone: Profile && Profile.phone_no,
             mail: Profile && Profile.email,
