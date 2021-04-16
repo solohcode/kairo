@@ -209,7 +209,7 @@ export class UserProducts extends Component {
                                     <small class="card-text">{data.description}</small>
                                     <hr/>
                                     <div className="card-text">
-                                            <b class="d-inline float-left">{data && data.category?data && data.category:'Category'}</b> <span className="text-center">|</span>
+                                            <p class="d-inline float-left">{data && data.category?data && data.category:'Category'}</p>
                                             <p class="d-inline float-right">{data && data.price}</p>
                                         </div>
                                     </div>
