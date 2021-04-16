@@ -1,6 +1,5 @@
-// import React from  'react'
-import usa from './usa.png'
-// import {} from '../images/usa.png'
+
+import usa from '../images/usa.png'
 
 
 
@@ -8,7 +7,6 @@ import usa from './usa.png'
 // const Profile =   ProfileApi
 const Profile = JSON.parse(localStorage.getItem('profile'))
     
-    // console.log(Profile)
 
     const ProfileData={
 
