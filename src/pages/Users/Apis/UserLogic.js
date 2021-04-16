@@ -26,6 +26,9 @@ export const ProfileApi=(token)=> {
 
                     setTimeout(function() { 
                         history.push('/dashboard')
+                        setTimeout(() =>{
+                            window.location.reload()
+                        }, 0)
                      }, 1000)
 
                 }else{
