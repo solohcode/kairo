@@ -122,7 +122,7 @@ export class Edit extends Component {
                 
 
                     <div className="text-center">
-                    <h3 className="text-secondary"><span className="fas fa-user-edit text-danger"/> Edit your profile</h3>
+                    <h3 className="text-secondary"><span className="fas fa-user-edit text-danger"/> Update profile</h3>
                     <hr/>
                         
                     <div className="row ">
