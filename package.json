@@ -15,8 +15,9 @@
     "serve": "^11.3.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start":"react-scripts start serve -s build",
+    "run":"react-scripts start",
+    "run1":"serve -s build",
+    "start": "npm run run && npm run run1",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

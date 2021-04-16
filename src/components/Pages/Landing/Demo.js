@@ -202,7 +202,7 @@ render(){
                                 <p class="card-text float-left">{prod && prod.description}</p>
                                <br/><br/>
                                     <div className="card-text">
-                                            <b class="d-inline float-left">{prod && prod.category}</b> <span>|</span>
+                                            <p class="d-inline float-left">{prod && prod.category? prod.category:'Category'}</p> 
                                             <p class="d-inline float-right">{prod && prod.price}</p>
                                     </div>
                                 </div>
@@ -230,7 +230,7 @@ render(){
                            
                                 <div>
                                     <div className="float-left">
-                                      <h6>Category: </h6>  <b>{prod && prod.category}</b>
+                                      <h6>Category: </h6>  <p>{prod && prod.category?prod.category:'Category'}</p>
                                     </div>
                                     <div class="card-text float-right">
                                       <h6>Price: </h6>  <p >{prod && prod.price}</p>
