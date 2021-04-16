@@ -214,7 +214,7 @@ export class UserProducts extends Component {
                                     <small class="card-text">{data.description}</small>
                                     <hr/>
                                     <div className="card-text">
-                                            <b class="d-inline float-left">{data && data.category}</b> <span>|</span>
+                                            <b class="d-inline float-left">{data && data.category?data && data.category:'Category'}</b> <span className="text-center">|</span>
                                             <p class="d-inline float-right">{data && data.price}</p>
                                         </div>
                                     </div>
@@ -263,7 +263,7 @@ export class UserProducts extends Component {
                                         <div className="form-group">
                                         <label for="category">Category</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option>{data.category}</option>
+                                            <option>{data.category?data && data.category:'Category'}</option>
                                             {
                                                 get==null? <option class="alert alert-danger">please connect to a network to view available categories.</option> :
                                             get.map(cat =>( 
@@ -303,7 +303,7 @@ export class UserProducts extends Component {
                                     <p class="card-text">{data.description}</p>
                                     <hr/>
                                         <div className="float-left">
-                                            <b>{data.category}</b> <span>|</span>
+                                            <b>{data.category?data && data.category:'Category'}</b> <span className="text-center">|</span>
                                         </div>
                                         <div class="card-text float-right">
                                             <p >{data.price}</p>

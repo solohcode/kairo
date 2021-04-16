@@ -47,16 +47,11 @@ class Products extends Component{
                                     <h5 class="card-title">{prod && prod.product_name}</h5>
                                     <small class="card-text m-0">{prod && prod.description}</small>
                                    <br/>
-                                    <div className="card-text">
-                                            <b class="d-inline float-left">{prod && prod.category}</b> <span>|</span>
+                                    <div className="card-text mt-3">
+                                            <p class="d-inline float-left">{prod.category?prod && prod.category:'Category'}</p>
                                             <p class="d-inline float-right">{prod && prod.price}</p>
                                         </div>
                                     </div>
-                                    {/* <div className="text-center card-footer" >
-                                       <div className="">
-                                           <span className="btn btn-outline-danger prod-link" type="button" data-toggle="modal" data-target={`#modal${prod.id}`}>view</span>
-                                        </div>
-                                    </div> */}
 
 
                                     <div  class="modal fade" id={`modal${prod.id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -76,7 +71,7 @@ class Products extends Component{
                                
                                     <div>
                                         <div className="float-left">
-                                          <h6>Category: </h6>  <b>{prod && prod.category}</b>
+                                          <h6>Category: </h6> <p>{prod.category?prod && prod.category:'Category'}</p>
                                         </div>
                                         <div class="card-text float-right">
                                           <h6>Price: </h6>  <p >{prod && prod.price}</p>
@@ -136,8 +131,8 @@ class Products extends Component{
                                     <h5 class="card-title">{prod && prod.product_name}</h5>
                                     <small class="card-text m-0">{prod && prod.description}</small>
                                    <br/>
-                                    <div className="card-text">
-                                            <b class="d-inline float-left">{prod && prod.category}</b> <span>|</span>
+                                    <div className="card-text mt-3">
+                                            <p class="d-inline float-left">{prod.category?prod && prod.category:'Category'}</p> 
                                             <p class="d-inline float-right">{prod && prod.price}</p>
                                         </div>
                                     </div>
@@ -165,7 +160,7 @@ class Products extends Component{
                                
                                     <div>
                                         <div className="float-left">
-                                          <h6>Category: </h6>  <b>{prod && prod.category}</b>
+                                          <h6>Category: </h6>  <p>{prod && prod.category?prod && prod.category:'Category'}</p>
                                         </div>
                                         <div class="card-text float-right">
                                           <h6>Price: </h6>  <p >{prod && prod.price}</p>
