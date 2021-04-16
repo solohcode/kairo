@@ -37,29 +37,26 @@ export class UserProducts extends Component {
         const prod = await User(token)
         const get = await CategoryApi(token)
 
-        // const alert = document.getElementById("prodMsg")
-        // const load = document.getElementById("prodLoad")
+        const alert = document.getElementById('none')
         const userPs = JSON.parse(localStorage.getItem('userProducts'))
 
         this.setState({
             get:get ,
         })
         if(prod){
-            // load.style.display="block"
+            alert.style.display="none"
             if(prod.status===false){
-                alert(prod.message)
+                alert.style.display="block"
+                alert.innerText=prod.message
             }
             if(prod.data){
-                // load.style.display="none"
                 localStorage.setItem('userProducts',JSON.stringify(prod.data))
                 this.setState({
                     data:prod.data
                 })
             }else{
-                alert('empty product page add products to the platform!')
-                // alert.style.display="block"
-                // alert.className="alert alert-danger"
-                // alert.innerText="connection error! or empty product page"  
+                alert.style.display="block"
+                alert.innerText='you do not have any product!'
             }
         }else{
             if(userPs!==""){
@@ -68,9 +65,8 @@ export class UserProducts extends Component {
                 })
             }
             console.log('connection error!')
-            // alert.style.display="block"
-            // alert.className="alert alert-danger"
-            // alert.innerText="connection error!"
+            alert.style.display="none"
+            
         }
         
         
@@ -194,10 +190,9 @@ export class UserProducts extends Component {
                     </div>
                     <hr/>
                     <div className="">
-                        {/* <div className="col-12">
-                            <span className="spinner-border" id="prodLoad" style={{display:"none"}}/>
-                            <span className="alert alert-warning" id="prodMsg" style={{display:"none"}}></span>
-                        </div> */}
+                        <div>
+                            <span className="alert alert-warning text-center" id="none" style={{display:'none'}}></span>
+                        </div>
                         
                     <div className="row">
                     { 
