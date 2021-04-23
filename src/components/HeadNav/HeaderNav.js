@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../../images/logo3.jpg'
+import { ProfileData } from '../../LocalStorage/Storage'
+
 
 
 
@@ -34,6 +36,13 @@ render(){
                     <li class="nav-item mx-3">
                         <Link class="nav-link link" to="/about">About</Link>
                     </li>
+                    {
+                      ProfileData && ProfileData.first !== null?
+                    <li class="nav-item mx-3">
+                        <Link class="nav-link link" to="/dashboard">Dashboard</Link>
+                    </li>
+                    :''
+                    }
                     {/* <li class="nav-item  mx-3">
                     <div class="dropdown bg-light">
                         <Link class="drop-btn nav-link link">More <span class="fa fa-caret-down"/></Link>

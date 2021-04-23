@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { ProfileData } from '../../LocalStorage/Storage'
-// import { LogoutApi } from '../../pages/Auth/APIs/AuthLogic'
 
 
 
@@ -19,6 +18,7 @@ export class Sidebar extends Component {
                                 <Link className=" link" to="/dashboard" ><span className="fa fa-dashboard"/> Dashboard</Link>
                                 <Link to="/profile" className="link" ><span className="fa fa-user"/> Profile</Link>
                                 <Link to="/products" className="link" ><span className="fa fa-tags"/> Products</Link>
+                                
 
 
 
@@ -26,7 +26,7 @@ export class Sidebar extends Component {
                                 <hr className="text-white" style={{color:'white',}}/>
                                 <br/><br/><br/><br/>
 
-                                <Link to="/" className="btn btn-lg btn-outline-danger mb-5 my-5 fa fa-sign-out" onClick={() => localStorage.clear()}> Log out</Link>
+                                <Link to="/" className="btn btn-lg btn-outline-danger mb-```5 my-5 fa fa-sign-out" onClick={() => localStorage.clear()}> Log out</Link>
                            <br/>
                 </div>
             </div>
