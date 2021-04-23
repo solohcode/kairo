@@ -14,7 +14,6 @@ class Header extends Component{
         }
     }
 render(){
-    const {id} = this.state
     return (
         <div className="headerNav  " style={{marginBottom:'30px'}}>
             <div className="">
@@ -59,8 +58,9 @@ render(){
                     </div>
                     <div class=" ml-4 ">
                         {
-                            id==='/dashboard' || id==='/products' || id==='/profile' || id==='/editProfile'?'':
+                            ProfileData && ProfileData.first === null?
                         <Link to="/login" className="btn btn-lg btn-outline-danger fa fa-user"> Login</Link>
+                        :''
                         }
                     </div>
                 </div>
