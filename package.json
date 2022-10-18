@@ -22,7 +22,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
-    "deploy": "npm run build && mv build/index.html build/200.html && surge build e-zero.surge.sh"
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build kairo.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
