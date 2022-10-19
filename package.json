@@ -15,14 +15,14 @@
     "serve": "^11.3.2"
   },
   "scripts": {
-    "run":"react-scripts start",
-    "run1":"serve -s build",
+    "run": "react-scripts start",
+    "run1": "serve -s build",
     "start": "npm run run && npm run run1",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
-    "deploy": "npm run build && mv build/index.html build/200.html && surge build kairo.surge.sh"
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build e-kairo.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
